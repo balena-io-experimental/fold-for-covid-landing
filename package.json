@@ -1,0 +1,44 @@
+{
+  "name": "4r-landing-page",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "balena-lint src/ && echo \"Done!\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@balena/lint": "^5.0.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.3"
+  },
+  "dependencies": {
+    "@bit/sradevski.balena-image-form.image-form": "^1.0.2",
+    "@types/node": "^13.11.1",
+    "@types/react": "^16.9.33",
+    "@types/react-dom": "^16.9.6",
+    "balena-sdk": "^12.32.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
+    "rendition": "^14.6.0",
+    "styled-components": "^5.1.0",
+    "typescript": "^3.8.3"
+  }
+}
