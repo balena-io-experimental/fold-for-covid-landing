@@ -7,7 +7,7 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 
 const Social = () => {
 	return (
-		<Box mt={5} py={6} bg="#333" width="100%">
+		<Box id="social" mt={5} py={6} bg="#333" width="100%">
 			<Flex
 				mx="auto"
 				maxWidth="800px"
