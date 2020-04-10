@@ -1,13 +1,13 @@
 import React from 'react';
-import { Provider, Heading, Box, Flex } from 'rendition';
+import { Provider, Box } from 'rendition';
 import { createGlobalStyle } from 'styled-components';
-import { DownloadImage } from './DownloadImage';
 import Footer from './Footer';
 import Header from './Header';
 import FAQs from './FAQs';
 import Social from './Social';
 import Forum from './Forum';
 import HelpSection from './HelpSection';
+import GetStarted from './GetStarted';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -20,7 +20,10 @@ const App = () => {
 		<Provider
 			theme={
 				{
-					colors: { primary: { main: '#63ba97' } },
+					colors: {
+						primary: { main: '#63ba97', light: '#dcf0ea' },
+						text: { main: '#333' },
+					},
 					fontSizes: [12, 14, 16, 18, 20, 26, 38, 48],
 					font: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
 					radius: 0,
@@ -35,18 +38,7 @@ const App = () => {
 					Map placeholder
 				</Box>
 				<HelpSection />
-				<Flex
-					mt={5}
-					mx="auto"
-					maxWidth="1280px"
-					flexDirection={'column'}
-					alignItems="center"
-					justifyContent="center"
-					p={5}
-				>
-					<Heading.h2 align="center">Select your hardware</Heading.h2>
-					<DownloadImage />
-				</Flex>
+				<GetStarted />
 				<Forum />
 				<Social />
 				<FAQs />
