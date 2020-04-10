@@ -5,6 +5,8 @@ import { DownloadImage } from './DownloadImage';
 import Footer from './Footer';
 import Header from './Header';
 import FAQs from './FAQs';
+import Social from './Social';
+import Forum from './Forum';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -96,44 +98,8 @@ const App = () => {
 					<Heading.h2 align="center">Select your hardware</Heading.h2>
 					<DownloadImage />
 				</Flex>
-
-				<Box mt={5} p={5} bg="quartenary.light" width="100%">
-					<Flex
-						mx="auto"
-						maxWidth="768px"
-						flexDirection={'column'}
-						alignItems="center"
-						justifyContent="center"
-					>
-						<Heading.h2 align="center">
-							Tell everyone about this project so they too can help fight the
-							pandemic
-						</Heading.h2>
-						<Flex mt={4} alignItems="center" justifyContent="center">
-							<Button>Twitter</Button>
-							<Button mx={3}>Facebook</Button>
-							<Button>Instagram</Button>
-						</Flex>
-					</Flex>
-				</Box>
-				<Box mt={5} p={5} bg="quartenary.light" width="100%">
-					<Flex
-						mx="auto"
-						maxWidth="960px"
-						flexDirection={'column'}
-						alignItems="center"
-						justifyContent="center"
-					>
-						<Heading.h2 align="center">Join our project forum</Heading.h2>
-						<Txt align="center">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem
-							minima distinctio
-						</Txt>
-						<Button primary mt={4}>
-							Visit forum
-						</Button>
-					</Flex>
-				</Box>
+				<Forum />
+				<Social />
 				<FAQs />
 			</Box>
 			<Footer />
