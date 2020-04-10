@@ -7,36 +7,58 @@ import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 
 const Social = () => {
 	return (
-		<Box id="social" mt={5} py={6} bg="#333" width="100%">
+		<Box id="social" mt={5} py={[5, 5, 6]} bg="#333" width="100%">
 			<Flex
 				mx="auto"
 				maxWidth="800px"
 				flexDirection={'column'}
 				alignItems="center"
+				px={3}
 				justifyContent="center"
 			>
 				<Heading.h2
 					align="center"
-					fontSize={7}
+					fontSize={[5, 6, 6, 7]}
 					style={{ lineHeight: '1.1' }}
 					color="#fff"
 				>
 					Tell everyone you know about this project so they too can help fight
 					the pandemic!
 				</Heading.h2>
-				<Flex mt={4} alignItems="center" justifyContent="center">
-					<Button icon={<FontAwesomeIcon icon={faTwitter} />} outline light>
+				<Flex
+					alignItems="center"
+					flexDirection={['column', 'row']}
+					justifyContent="center"
+					mt={[4, 4, 3]}
+				>
+					<Button
+						mb={3}
+						mr={3}
+						minWidth={145}
+						icon={<FontAwesomeIcon icon={faTwitter} />}
+						outline
+						light
+					>
 						Twitter
 					</Button>
 					<Button
 						icon={<FontAwesomeIcon icon={faFacebookSquare} />}
 						outline
 						light
-						mx={3}
+						minWidth={145}
+						mb={3}
+						mr={3}
 					>
 						Facebook
 					</Button>
-					<Button icon={<FontAwesomeIcon icon={faInstagram} />} outline light>
+					<Button
+						mb={3}
+						mr={3}
+						minWidth={145}
+						icon={<FontAwesomeIcon icon={faInstagram} />}
+						outline
+						light
+					>
 						Instagram
 					</Button>
 				</Flex>

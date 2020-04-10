@@ -3,35 +3,8 @@ import { Flex, Box, Heading, Txt, Button } from 'rendition';
 import join_1 from '../img/join_1.svg';
 import join_2 from '../img/join_2.svg';
 import join_3 from '../img/join_3.svg';
-
-interface StepProps {
-	index: number;
-	title: string;
-	img: any;
-}
-
-const Step = ({ index, title, img }: StepProps) => (
-	<Flex flex={1}>
-		<Flex
-			alignItems="center"
-			justifyContent="center"
-			bg="primary.main"
-			color="#fff"
-			style={{ borderRadius: '50%' }}
-			height={32}
-			width={32}
-			mr={2}
-		>
-			{index}
-		</Flex>
-		<Flex maxWidth="150px" flexDirection="column" alignItems="start">
-			<Txt fontSize="13px" mb={2} style={{ lineHeight: 1.31, fontWeight: 600 }}>
-				{title}
-			</Txt>
-			<img src={img} style={{ height: 52 }} alt="laptop" />
-		</Flex>
-	</Flex>
-);
+import { ExternalLink } from './ExternalLink';
+import { InfoStep } from './InfoStep';
 
 const HelpSection = () => {
 	return (
@@ -39,9 +12,10 @@ const HelpSection = () => {
 			mt={5}
 			mx="auto"
 			maxWidth="1280px"
-			flexDirection={['column', 'column', 'row']}
+			flexDirection={['column', 'column', 'row', 'row']}
 			alignItems="center"
 			justifyContent="space-between"
+			px={3}
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
@@ -49,39 +23,63 @@ const HelpSection = () => {
 					What is 4R, and how does it help?
 				</Heading.h2>
 				<Txt.p fontSize={2}>
-					Rosetta@Home is the project is led by the{' '}
-					<strong>Baker Laboratory at the University of Washington.</strong> The
-					main goal of the Rosetta@Home project is to predict protein docking.
-					The current research of Rosetta@Home is on the therapeutic side, after
-					patients already have COVID-19. Do you have a spare device at home?
-					Would you like to help Baker Laboratory to block the spikes on
-					proteins of the COVID-19? <strong>Let’s make it happen.</strong>
+					The 4R Project (Reusing Redundant & Raspberry computer for Rosetta)
+					makes it easy to donate spare compute capacity to support Covid-19
+					research. This effort contributes to the{' '}
+					<ExternalLink
+						label="Rosetta@Home"
+						href="https://boinc.bakerlab.org"
+					/>{' '}
+					project, led by the{' '}
+					<ExternalLink
+						href="https://www.bakerlab.org"
+						label="Baker Laboratory at the University of Washington"
+					/>
+					, which uses distributed computing to help scientists and doctors find
+					potential treatments for Covid-19.
 				</Txt.p>
-				<Button outline>Read More</Button>
+				<Txt.p fontSize={2}>
+					Your contributions help researchers look for proteins that bind to the
+					famous "spike" protein on Covid-19. By finding these binding proteins,
+					doctors hope to develop medicines that prevent the virus from entering
+					healthy cells.
+				</Txt.p>
+				<Txt.p fontSize={2}>
+					Do you have a spare computer or single board computer at home? Help
+					the fight!
+				</Txt.p>
+				<Button outline my={[2, 2, 1, 1]}>
+					Read More
+				</Button>
 			</Box>
 
-			<Box flex={1} ml={[0, 0, 3]}>
+			<Box flex={1} mt={[3, 3, 0, 0]} ml={[0, 0, 3, 3]}>
 				<Heading.h2 bold fontSize={3}>
 					Join the fight!
 				</Heading.h2>
-				<Flex width="100%" my={3}>
-					<Step
+				<Flex
+					width="100%"
+					justifyContent={['center']}
+					flexDirection={['column', 'column', 'row', 'row']}
+					my={3}
+				>
+					<InfoStep
 						index={1}
 						title="Find an old laptop or computer"
 						img={join_1}
-					></Step>
-					<Step
+					></InfoStep>
+					<InfoStep
 						index={2}
 						title="Download and install  balenaEtcher &amp; image"
 						img={join_2}
-					></Step>
-					<Step
+					></InfoStep>
+					<InfoStep
 						index={3}
 						title="Let’s fight the virus together!"
 						img={join_3}
-					></Step>
+					></InfoStep>
 				</Flex>
-				<Button mt={2} mb={1} primary>
+				<Button mt={2} mb={[2, 2, 1]} primary>
 					Get Started
 				</Button>
 				<Txt>

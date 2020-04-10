@@ -7,7 +7,7 @@ import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
-import styled from 'styled-components';
+import ProjectLogo from './ProjectLogo';
 
 const socialLinks = [
 	{ href: '//github.com/balena-io', icon: faGithub, label: 'Github' },
@@ -25,15 +25,6 @@ const socialLinks = [
 	},
 ];
 
-const VerticalDivider = styled.span`
-	width: 1px;
-	height: 16px;
-	background: #63ba97;
-	display: inline-block;
-	margin: 0px 8px;
-	vertical-align: middle;
-`;
-
 interface SocialLinkProps {
 	href: string;
 	icon: any;
@@ -46,10 +37,11 @@ const SocialLink = (props: SocialLinkProps) => (
 		rel="noreferrer noopener"
 		fontSize={0}
 		href={props.href}
-		pr={3}
+		mr={3}
+		my={[1, 1, 0, 0]}
 	>
-		<FontAwesomeIcon icon={props.icon} />{' '}
-		<Txt.span pl={1} bold>
+		<FontAwesomeIcon icon={props.icon} />
+		<Txt.span display="inline-block" pl={1} bold>
 			{props.label}
 		</Txt.span>
 	</Link>
@@ -58,28 +50,36 @@ const SocialLink = (props: SocialLinkProps) => (
 const Footer = () => {
 	return (
 		<Flex
-			height={100}
+			height={['auto']}
 			width="100%"
 			flexDirection="column"
 			justifyContent="space-between"
 			bg="#333333"
 		>
-			<Box mx="auto" my={3} width="100%" maxWidth="1215px">
-				<Flex alignItems="center" justifyContent="space-between">
-					<Box>
-						<Txt.span bold color="#fff">
-							4R Project
-						</Txt.span>
-						<VerticalDivider />
-						<Txt.span style={{ opacity: 0.7 }} color="#fff" fontSize={0}>
-							Reusing Redundant & Raspberry computers for Rosetta
-						</Txt.span>
-					</Box>
-					<Box>
+			<Box mx="auto" my={3} px={3} width="100%" maxWidth="1215px">
+				<Flex
+					alignItems={['flex-start', 'flex-start', 'center', 'center']}
+					flexDirection={['column', 'column', 'row', 'row']}
+					justifyContent="space-between"
+				>
+					<Flex flex={[1, 1, 1, 1]}>
+						<ProjectLogo />
+					</Flex>
+					<Flex
+						flex={[1, 1, 2, 1]}
+						pt={[3, 3, 0, 0]}
+						justifyContent={[
+							'flex-start',
+							'flex-start',
+							'flex-end',
+							'flex-end',
+						]}
+						flexDirection={['column', 'row', 'row', 'row']}
+					>
 						{socialLinks.map((link) => (
 							<SocialLink {...link} />
 						))}
-					</Box>
+					</Flex>
 				</Flex>
 				<Box mt={3}>
 					<Txt.span pr={2} fontSize={0} color="#fff">
