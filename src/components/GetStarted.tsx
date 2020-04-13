@@ -184,6 +184,7 @@ const GetStarted = () => {
 								flash it to an SD Card, and begin crunching data to help
 								scientists!
 							</Txt.p>
+
 							<Txt.p fontSize={2}>
 								<Txt.span bold>
 									Please Note: This project requires a{' '}
