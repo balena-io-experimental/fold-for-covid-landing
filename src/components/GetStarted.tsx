@@ -1,10 +1,46 @@
 import React from 'react';
-import { Flex, Heading, Box, Tabs, Tab, Txt, Button } from 'rendition';
+import { Flex, Heading, Box, Tabs, Tab, Txt, Button, Select } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import BalenaSdk from 'balena-sdk';
+
+export const API_ENDPOINT = 'https://api.balena-cloud.com';
+
+const handleError = (err: Error) => {
+	// TODO: Show notification instead.
+	console.error(err);
+};
+
+const sdk = BalenaSdk({
+	apiUrl: API_ENDPOINT,
+	isBrowser: true,
+});
+
+const getAppArch = (
+	app: BalenaSdk.Application,
+	deviceTypes: BalenaSdk.DeviceType[],
+) => {
+	return deviceTypes.find((deviceType) => deviceType.slug === app.device_type)
+		?.arch;
+};
+
+const getCompatibleDeviceTypes = (
+	app: BalenaSdk.Application,
+	deviceTypes: BalenaSdk.DeviceType[],
+) => {
+	const targetArch = getAppArch(app, deviceTypes);
+
+	if (!targetArch) {
+		throw new Error('Failed to find the device type');
+	}
+
+	return deviceTypes.filter((deviceType) =>
+		sdk.models.os.isArchitectureCompatibleWith(deviceType.arch, targetArch),
+	);
+};
 
 interface StepProps {
 	index: number;
@@ -26,6 +62,100 @@ const Step = ({ index, children }: StepProps) => (
 );
 
 const GetStarted = () => {
+	const [selectedAppArch, setSelectedAppArch] = React.useState('aarch64');
+
+	const [selectedApp, setSelectedApp] = React.useState<
+		BalenaSdk.Application | undefined
+	>();
+	const [selectedDeviceType, setSelectedDeviceType] = React.useState<
+		BalenaSdk.DeviceType | undefined
+	>();
+	const [compatibleDeviceTypes, setCompatibleDeviceTypes] = React.useState<
+		BalenaSdk.DeviceType[] | undefined
+	>();
+	const [deviceTypes, setDeviceTypes] = React.useState<
+		BalenaSdk.DeviceType[] | undefined
+	>();
+	const [applications, setApplications] = React.useState<
+		BalenaSdk.Application[] | undefined
+	>();
+
+	React.useEffect(() => {
+		const appIds = [1635296, 1635297];
+
+		sdk.models.config
+			.getDeviceTypes()
+			.then((res) =>
+				res.filter((deviceType) => deviceType.state !== 'DISCONTINUED'),
+			)
+			.then(setDeviceTypes)
+			.catch(handleError);
+		sdk.pine
+			.get<BalenaSdk.Application>({
+				resource: 'application',
+				options: {
+					$select: ['id', 'device_type', 'app_name'],
+					$filter: {
+						id: { $in: appIds },
+					},
+				},
+			})
+			.then(setApplications)
+			.catch(handleError);
+	}, []);
+
+	React.useEffect(() => {
+		if (!deviceTypes || !applications || !selectedAppArch) {
+			return;
+		}
+
+		const compatibleApp = applications.find((app) =>
+			sdk.models.os.isArchitectureCompatibleWith(
+				getAppArch(app, deviceTypes) ?? '',
+				selectedAppArch,
+			),
+		);
+
+		if (!compatibleApp) {
+			handleError(
+				new Error('Could not find an application with a suitable architecture'),
+			);
+			return;
+		}
+
+		setSelectedApp(compatibleApp);
+		setCompatibleDeviceTypes(
+			getCompatibleDeviceTypes(compatibleApp, deviceTypes),
+		);
+	}, [deviceTypes, applications, selectedAppArch]);
+
+	React.useEffect(() => {
+		if (
+			selectedDeviceType &&
+			compatibleDeviceTypes?.some(
+				(deviceType) => deviceType.slug === selectedDeviceType.slug,
+			)
+		) {
+			return;
+		}
+
+		setSelectedDeviceType(compatibleDeviceTypes?.[0]);
+	}, [compatibleDeviceTypes, selectedDeviceType, selectedApp]);
+
+	const deviceTypeSelector = compatibleDeviceTypes ? (
+		<Select<BalenaSdk.DeviceType>
+			mt={3}
+			mb={3}
+			options={compatibleDeviceTypes}
+			valueKey="slug"
+			labelKey="name"
+			value={selectedDeviceType || {}}
+			onChange={({ option }) => {
+				setSelectedDeviceType(option);
+			}}
+		/>
+	) : null;
+
 	return (
 		<Box bg="primary.light">
 			<Flex mt={4} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
@@ -33,7 +163,11 @@ const GetStarted = () => {
 					Get Started
 				</Heading.h2>
 				<Box maxWidth="100%" width="600px">
-					<Tabs>
+					<Tabs
+						onActive={(activeIndex) =>
+							setSelectedAppArch(activeIndex === 0 ? 'aarch64' : 'amd64')
+						}
+					>
 						<Tab
 							title={
 								<Txt fontSize={2} bold>
@@ -41,16 +175,19 @@ const GetStarted = () => {
 								</Txt>
 							}
 						>
+							{deviceTypeSelector}
+
 							<Txt.p fontSize={2}>
-								Getting started on a <Txt.span bold>Raspberry Pi 4</Txt.span> is
-								simple! Follow these steps to download our ready-made operating
-								system, flash it to an SD Card, and begin crunching data to help
+								Getting started on a{' '}
+								<Txt.span bold>{selectedDeviceType?.name}</Txt.span> is simple!
+								Follow these steps to download our ready-made operating system,
+								flash it to an SD Card, and begin crunching data to help
 								scientists!
 							</Txt.p>
 							<Txt.p fontSize={2}>
 								<Txt.span bold>
-									Please Note: This project requires a Raspberry Pi 4 with 2GB
-									or 4GB of memory
+									Please Note: This project requires a{' '}
+									{selectedDeviceType?.name} with 2GB or 4GB of memory
 								</Txt.span>
 								. These simulations are large and the 1GB version of the
 								Raspberry Pi 4 doesn’t have enough memory to run the work units
@@ -64,6 +201,8 @@ const GetStarted = () => {
 								</Txt>
 							}
 						>
+							{deviceTypeSelector}
+
 							<Txt.p fontSize={2}>
 								Getting started on an unused laptop or desktop PC is easy!
 								Follow these steps to download our ready-made operating system,
@@ -80,6 +219,7 @@ const GetStarted = () => {
 							</Txt.p>
 						</Tab>
 					</Tabs>
+
 					<Heading.h3 bold my={3} fontSize={3}>
 						Let's begin
 					</Heading.h3>
@@ -99,7 +239,11 @@ const GetStarted = () => {
 						<Txt fontSize={2} bold>
 							Download the ready-made Operating System below.
 						</Txt>
-						<DownloadImage />
+						<DownloadImage
+							sdk={sdk}
+							selectedApp={selectedApp}
+							selectedDeviceType={selectedDeviceType}
+						/>
 					</Step>
 					<Step index={3}>
 						<Txt fontSize={2} bold>
