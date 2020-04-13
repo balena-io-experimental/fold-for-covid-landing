@@ -4,7 +4,7 @@ import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowToBottom } from '@fortawesome/pro-regular-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 interface StepProps {
 	index: number;
@@ -91,11 +91,7 @@ const GetStarted = () => {
 								label="balenaEtcher"
 							/>
 						</Txt>
-						<Button
-							mt={3}
-							primary
-							icon={<FontAwesomeIcon icon={faArrowToBottom} />}
-						>
+						<Button mt={3} primary icon={<FontAwesomeIcon icon={faDownload} />}>
 							Download Now
 						</Button>
 					</Step>
