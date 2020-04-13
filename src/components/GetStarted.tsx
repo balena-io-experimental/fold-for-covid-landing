@@ -157,7 +157,7 @@ const GetStarted = () => {
 	) : null;
 
 	return (
-		<Box bg="primary.light">
+		<Box id="get-started" bg="primary.light">
 			<Flex mt={4} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
 				<Heading.h2 fontSize={5} color="text.main" bold>
 					Get Started
@@ -184,15 +184,17 @@ const GetStarted = () => {
 								flash it to an SD Card, and begin crunching data to help
 								scientists!
 							</Txt.p>
-							<Txt.p fontSize={2}>
-								<Txt.span bold>
-									Please Note: This project requires a{' '}
-									{selectedDeviceType?.name} with 2GB or 4GB of memory
-								</Txt.span>
-								. These simulations are large and the 1GB version of the
-								Raspberry Pi 4 doesn’t have enough memory to run the work units
-								Rosetta@Home provides.
-							</Txt.p>
+							{selectedDeviceType?.name?.includes('raspberry') && (
+								<Txt.p fontSize={2}>
+									<Txt.span bold>
+										Please Note: This project requires a{' '}
+										{selectedDeviceType?.name} with 2GB or 4GB of memory
+									</Txt.span>
+									. These simulations are large and the 1GB version of the
+									{selectedDeviceType?.name} doesn’t have enough memory to run
+									the work units Rosetta@Home provides.
+								</Txt.p>
+							)}
 						</Tab>
 						<Tab
 							title={

@@ -61,7 +61,7 @@ const FAQs = () => {
 				<Txt fontSize={3} bold>
 					Need more Help?
 				</Txt>
-				<Button mx={3} primary>
+				<Button mx={3} target="_blank" primary href="https://forums.balena.io">
 					See forums
 				</Button>
 			</Flex>

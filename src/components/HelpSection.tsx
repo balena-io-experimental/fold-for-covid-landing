@@ -5,8 +5,10 @@ import join_2 from '../img/join_2.svg';
 import join_3 from '../img/join_3.svg';
 import { ExternalLink } from './ExternalLink';
 import { InfoStep } from './InfoStep';
+import { useHistory } from 'react-router-dom';
 
 const HelpSection = () => {
+	const history = useHistory();
 	return (
 		<Flex
 			mt={5}
@@ -48,7 +50,11 @@ const HelpSection = () => {
 					Do you have a spare computer or single board computer at home? Help
 					the fight!
 				</Txt.p>
-				<Button outline my={[2, 2, 1, 1]}>
+				<Button
+					onClick={() => history.push('/how-does-this-help')}
+					outline
+					my={[2, 2, 1, 1]}
+				>
 					Read More
 				</Button>
 			</Box>
