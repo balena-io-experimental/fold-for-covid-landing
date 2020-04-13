@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Flex, Box, Txt, Link as RLink, Heading, Button } from 'rendition';
+import { Flex, Box, Txt, Link as RLink, Button } from 'rendition';
 import ProjectLogo from './ProjectLogo';
-
+import { Link as InternalLink } from 'react-router-dom';
 interface LinkProps {
 	href: string;
 	label: string;
@@ -36,19 +36,21 @@ const Header = () => {
 			justifyContent="space-between"
 			bg="#333333"
 		>
-			<Box mx="auto" my={3} px={3} width="100%" maxWidth="1215px">
+			<Box mx="auto" mt={3} py={3} width="100%" maxWidth="1215px">
 				<Flex
 					alignItems="center"
 					flexDirection={['column', 'column', 'row', 'row']}
 					justifyContent="space-between"
 				>
 					<Flex flex={1}>
-						<ProjectLogo />
+						<InternalLink to="/">
+							<ProjectLogo />
+						</InternalLink>
 					</Flex>
 					<Box py={[3, 3, 0, 0]}>
-						<Link href="#how-does-this-help" label="How does this help?" />
-						<Link href="#community" label="Community" />
-						<Link href="#faqs" label="FAQs" />
+						<Link href="/how-does-this-help" label="How does this help?" />
+						<Link href="/#community" label="Community" />
+						<Link href="/#faqs" label="FAQs" />
 						<Link
 							href="https://github.com/balena-io/"
 							external
@@ -56,20 +58,9 @@ const Header = () => {
 						/>
 					</Box>
 					<Flex alignSelf={['center', 'center', 'flex-end']}>
-						<Button label="Get Started" outline light />
+						<Button href="/#get-started" label="Get Started" outline light />
 					</Flex>
 				</Flex>
-				<Box mt={4}>
-					<Heading.h1
-						style={{ lineHeight: '1.28' }}
-						color="#fff"
-						fontSize={[5, 6, 7, 7]}
-						bold
-					>
-						Help fight the COVID-19 pandemic with your old laptop, Raspberry Pi,
-						or other spare computer
-					</Heading.h1>
-				</Box>
 			</Box>
 		</Flex>
 	);

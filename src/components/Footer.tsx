@@ -10,16 +10,20 @@ import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 import ProjectLogo from './ProjectLogo';
 
 const socialLinks = [
-	{ href: '//github.com/balena-io', icon: faGithub, label: 'Github' },
-	{ href: '//twitter.com/balena_io', icon: faTwitter, label: 'Twitter' },
+	{ href: 'https://github.com/balena-io', icon: faGithub, label: 'Github' },
+	{ href: 'https://twitter.com/balena_io', icon: faTwitter, label: 'Twitter' },
 	{
-		href: '//facebook.com/balenacloud',
+		href: 'https://facebook.com/balenacloud',
 		icon: faFacebookSquare,
 		label: 'Facebook',
 	},
-	{ href: '//instagram.com/balena_io', icon: faInstagram, label: 'Instagram' },
 	{
-		href: '//linkedin.com/company/balenaio',
+		href: 'https://instagram.com/balena_io',
+		icon: faInstagram,
+		label: 'Instagram',
+	},
+	{
+		href: 'https://linkedin.com/company/balenaio',
 		icon: faLinkedinIn,
 		label: 'Linkedin',
 	},
@@ -33,7 +37,7 @@ interface SocialLinkProps {
 const SocialLink = (props: SocialLinkProps) => (
 	<Link
 		color="#fff"
-		target="_blank"
+		blank
 		rel="noreferrer noopener"
 		fontSize={0}
 		href={props.href}

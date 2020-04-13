@@ -10,6 +10,9 @@ import HelpSection from './HelpSection';
 import GetStarted from './GetStarted';
 import DeviceMap from './DeviceMap';
 import reset from 'styled-reset';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import { HowDoesThisHelp } from './HowDoesThisHelp';
+import { SubHeader } from './SubHeader';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -20,47 +23,57 @@ const GlobalStyle = createGlobalStyle`
 
 const App = () => {
 	return (
-		<Provider
-			theme={
-				{
-					colors: {
-						primary: { main: '#63ba97', light: '#dcf0ea' },
-						text: { main: '#333' },
-						border: { dark: '#63ba97', light: '#dcf0ea' },
-					},
-					fontSizes: [12, 14, 16, 18, 20, 26, 38, 48],
-					font: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
-					radius: 0,
-					button: { border: { radius: 0 } },
-					tabs: { gap: 'xxsmall' },
-					tab: {
-						border: {
-							size: 'small',
-							color: { light: '#dcf0ea' },
-							active: { color: { light: '#63ba97' } },
-							hover: {
-								color: { light: '#63ba97' },
-							},
+		<Router>
+			<Provider
+				theme={
+					{
+						colors: {
+							primary: { main: '#63ba97', light: '#dcf0ea' },
+							text: { main: '#333' },
+							border: { dark: '#63ba97', light: '#dcf0ea' },
 						},
-						active: { fontWeight: 'bold', color: 'black' },
-						hover: { fontWeight: 'bold', color: 'black' },
-						margin: { horizontal: 'small' },
-					},
-				} as any
-			}
-		>
-			<Header />
-			<GlobalStyle />
-			<Box color="text.main">
-				<DeviceMap />
-				<HelpSection />
-				<GetStarted />
-				<Forum />
-				<Social />
-				<FAQs />
-			</Box>
-			<Footer />
-		</Provider>
+						fontSizes: [12, 14, 16, 18, 20, 26, 38, 48],
+						font: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
+						radius: 0,
+						button: { border: { radius: 0 } },
+						tabs: { gap: 'xxsmall' },
+						tab: {
+							border: {
+								size: 'small',
+								color: { light: '#dcf0ea' },
+								active: { color: { light: '#63ba97' } },
+								hover: {
+									color: { light: '#63ba97' },
+								},
+							},
+							active: { fontWeight: 'bold', color: 'black' },
+							hover: { fontWeight: 'bold', color: 'black' },
+							margin: { horizontal: 'small' },
+						},
+					} as any
+				}
+			>
+				<Header />
+				<GlobalStyle />
+				<Switch>
+					<Route path="/" exact>
+						<Box color="text.main">
+							<SubHeader />
+							<DeviceMap />
+							<HelpSection />
+							<GetStarted />
+							<Forum />
+							<Social />
+							<FAQs />
+						</Box>
+					</Route>
+					<Route path="/how-does-this-help">
+						<HowDoesThisHelp />
+					</Route>
+				</Switch>
+				<Footer />
+			</Provider>
+		</Router>
 	);
 };
 

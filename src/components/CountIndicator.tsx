@@ -27,7 +27,7 @@ export const CountIndicator = ({ count }: CountIndicatorProps) => (
 		<Txt maxWidth={200} align="center">
 			Computers fighting COVID-19 pandemic around the world
 		</Txt>
-		<Button width="100%" mt={2} primary>
+		<Button href="#get-started" width="100%" mt={2} primary>
 			Join the fight!
 		</Button>
 	</Container>
