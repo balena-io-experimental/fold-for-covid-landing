@@ -2,8 +2,20 @@ import React from 'react';
 import { ImageForm } from '@bit/sradevski.balena-image-form.image-form';
 import { Box } from 'rendition';
 import * as BalenaSdk from 'balena-sdk';
+import styled from 'styled-components';
 
 const DOWNLOAD_IMAGE_ENDPOINT = `https://api.balena-cloud.com/download`;
+
+const ImageFormContainer = styled(Box)`
+	& hr {
+		display: none;
+	}
+
+	& button {
+		margin-left: 0;
+		margin-right: auto;
+	}
+`;
 
 interface DownloadImageProps {
 	selectedApp: BalenaSdk.Application | undefined;
@@ -24,7 +36,7 @@ export const DownloadImage = ({
 	};
 
 	return (
-		<Box mt={3} width="50%">
+		<ImageFormContainer mt={3} width="80%">
 			{deviceType && selectedApp && (
 				<ImageForm
 					downloadUrl={DOWNLOAD_IMAGE_ENDPOINT}
@@ -39,6 +51,6 @@ export const DownloadImage = ({
 					configurationComponent={<></>}
 				/>
 			)}
-		</Box>
+		</ImageFormContainer>
 	);
 };

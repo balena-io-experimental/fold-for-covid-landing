@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, Txt, Heading, Divider } from 'rendition';
 
 export const HowDoesThisHelp = () => (
-	<Box maxWidth="1215px" my={3} width="100%" mx="auto" px={3}>
-		<Heading.h2 fontSize={5} bold py={3}>
+	<Box maxWidth="1280px" my={3} width="100%" mx="auto" px={3} py={2}>
+		<Heading.h2 bold py={3}>
 			How does this help
 		</Heading.h2>
 		<Txt.p fontSize={2}>
@@ -36,7 +36,7 @@ export const HowDoesThisHelp = () => (
 			software to begin crunching data.
 		</Txt.p>
 		<Divider mt={4} />
-		<Heading.h2 fontSize={5} bold py={3}>
+		<Heading.h2 bold py={3}>
 			Why are we doing this?
 		</Heading.h2>
 		<Txt.p fontSize={2} pb={3}>

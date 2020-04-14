@@ -12,6 +12,7 @@ export const ExternalLink = ({ href, label }: ExternalLinkProps) => (
 		blank
 		rel="noopener noreferrer"
 		color="text.main"
+		display="inline"
 		style={{ fontWeight: 'bold', textDecoration: 'underline' }}
 	>
 		{label}
