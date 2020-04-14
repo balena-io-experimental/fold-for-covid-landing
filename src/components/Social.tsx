@@ -16,12 +16,7 @@ const Social = () => {
 				px={3}
 				justifyContent="center"
 			>
-				<Heading.h2
-					align="center"
-					fontSize={[5, 6, 6, 7]}
-					style={{ lineHeight: '1.1' }}
-					color="#fff"
-				>
+				<Heading.h2 align="center" fontSize={[5, 5, 5, 6]} color="#fff">
 					Tell everyone you know about this project so they too can help fight
 					the pandemic!
 				</Heading.h2>

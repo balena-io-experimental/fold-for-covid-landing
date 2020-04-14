@@ -60,7 +60,7 @@ const Footer = () => {
 			justifyContent="space-between"
 			bg="#333333"
 		>
-			<Box mx="auto" my={3} px={3} width="100%" maxWidth="1215px">
+			<Box mx="auto" my={3} px={3} width="100%" maxWidth="1280px">
 				<Flex
 					alignItems={['flex-start', 'flex-start', 'center', 'center']}
 					flexDirection={['column', 'column', 'row', 'row']}

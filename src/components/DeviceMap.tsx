@@ -12,7 +12,7 @@ import { CountIndicator } from './CountIndicator';
 
 const MapWithAMarker = withScriptjs(
 	withGoogleMap((props: any) => (
-		<GoogleMap defaultZoom={2} defaultCenter={{ lat: 0, lng: 0 }}>
+		<GoogleMap defaultZoom={2} defaultCenter={{ lat: 20, lng: 0 }}>
 			{props.markers}
 		</GoogleMap>
 	)),
@@ -20,14 +20,15 @@ const MapWithAMarker = withScriptjs(
 
 const DeviceMap = () => {
 	const devices = [{ id: 1, lat: 19.076, lng: 72.8777 }];
+
 	return (
-		<Box style={{ height: `560px`, position: 'relative' }}>
+		<Box height={560} style={{ position: 'relative' }}>
 			<CountIndicator count={devices.length} />
 			<MapWithAMarker
 				googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDf0Nr2SdvVanZMKVp-8j0gaoyH0doaTvI&v=3.exp&libraries=geometry,drawing,places`}
-				loadingElement={<div style={{ height: `100%` }} />}
-				containerElement={<div style={{ height: `560px` }} />}
-				mapElement={<div style={{ height: `100%` }} />}
+				loadingElement={<Box height={'100%'} />}
+				containerElement={<Box height={560} />}
+				mapElement={<Box height={'100%'} />}
 				markers={devices.map((device) => {
 					const { lat, lng, id } = device;
 					return (

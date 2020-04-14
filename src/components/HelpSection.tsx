@@ -21,10 +21,8 @@ const HelpSection = () => {
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
-				<Heading.h2 bold fontSize={4}>
-					What is 4R, and how does it help?
-				</Heading.h2>
-				<Txt.p fontSize={2}>
+				<Heading.h2 bold>What is 4R, and how does it help?</Heading.h2>
+				<Txt.p mt={3} fontSize={2}>
 					The 4R Project (Reusing Redundant & Raspberry computer for Rosetta)
 					makes it easy to donate spare compute capacity to support Covid-19
 					research. This effort contributes to the{' '}
@@ -40,20 +38,21 @@ const HelpSection = () => {
 					, which uses distributed computing to help scientists and doctors find
 					potential treatments for Covid-19.
 				</Txt.p>
-				<Txt.p fontSize={2}>
+				<Txt.p mt={3} fontSize={2}>
 					Your contributions help researchers look for proteins that bind to the
 					famous "spike" protein on Covid-19. By finding these binding proteins,
 					doctors hope to develop medicines that prevent the virus from entering
 					healthy cells.
 				</Txt.p>
-				<Txt.p fontSize={2}>
+				<Txt.p mt={3} fontSize={2}>
 					Do you have a spare computer or single board computer at home? Help
 					the fight!
 				</Txt.p>
 				<Button
 					onClick={() => history.push('/how-does-this-help')}
 					outline
-					my={[2, 2, 1, 1]}
+					mb={2}
+					mt={3}
 				>
 					Read More
 				</Button>
@@ -85,10 +84,10 @@ const HelpSection = () => {
 						img={join_3}
 					></InfoStep>
 				</Flex>
-				<Button mt={2} mb={[2, 2, 1]} primary>
+				<Button mt={3} mb={[2, 2, 1]} primary>
 					Get Started
 				</Button>
-				<Txt>
+				<Txt mt={2} color="text.light">
 					If you don’t have anything to run this project on you can still help
 					by running Rosetta@home on your desktop computer, instructions are
 					here.

@@ -52,7 +52,7 @@ const Header = () => {
 						<Link href="/#community" label="Community" />
 						<Link href="/#faqs" label="FAQs" />
 						<Link
-							href="https://github.com/balena-io/"
+							href="https://github.com/balenalabs/rosetta-at-home"
 							external
 							label="Github"
 						/>

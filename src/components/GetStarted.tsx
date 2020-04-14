@@ -150,6 +150,7 @@ const GetStarted = () => {
 		<Select<BalenaSdk.DeviceType>
 			mt={3}
 			mb={3}
+			mr={3}
 			options={compatibleDeviceTypes}
 			valueKey="slug"
 			labelKey="name"
@@ -163,10 +164,9 @@ const GetStarted = () => {
 	return (
 		<Box id="get-started" bg="primary.light">
 			<Flex mt={4} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
-				<Heading.h2 fontSize={5} color="text.main" bold>
-					Get Started
-				</Heading.h2>
-				<Box maxWidth="100%" width="600px">
+				<Heading.h2 bold>Get Started</Heading.h2>
+
+				<Box mt={3} maxWidth="100%" width="600px">
 					<Tabs
 						onActive={(activeIndex) =>
 							setSelectedAppArch(activeIndex === 0 ? 'aarch64' : 'amd64')
@@ -226,7 +226,7 @@ const GetStarted = () => {
 						</Tab>
 					</Tabs>
 
-					<Heading.h3 bold my={3} fontSize={3}>
+					<Heading.h3 bold my={3}>
 						Let's begin
 					</Heading.h3>
 					<Step index={1}>

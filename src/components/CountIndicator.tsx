@@ -20,7 +20,7 @@ const Container = styled(Box)`
 `;
 
 export const CountIndicator = ({ count }: CountIndicatorProps) => (
-	<Container px="25px" py="20px">
+	<Container px={4} py={3}>
 		<Txt color="primary.main" align="center" bold fontSize={7}>
 			{count.toLocaleString()}
 		</Txt>
