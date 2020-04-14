@@ -13,11 +13,13 @@ import reset from 'styled-reset';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { HowDoesThisHelp } from './HowDoesThisHelp';
 import { SubHeader } from './SubHeader';
+import { Credits } from './Credits';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
   body {
-    margin: 0
+    margin: 0;
+		color: #333;
   }
 `;
 
@@ -28,9 +30,9 @@ const App = () => {
 				theme={
 					{
 						colors: {
-							primary: { main: '#63ba97', light: '#dcf0ea' },
+							primary: { main: '#63ba97', light: '#eff8f4' },
 							text: { main: '#333', light: '#737373' },
-							border: { dark: '#63ba97', light: '#dcf0ea' },
+							border: { dark: '#63ba97', light: '#eff8f4' },
 						},
 						fontSizes: [12, 14, 16, 18, 20, 24, 38, 48],
 						font: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
@@ -50,6 +52,13 @@ const App = () => {
 							hover: { fontWeight: 'bold', color: 'black' },
 							margin: { horizontal: 'small' },
 						},
+						global: {
+							control: {
+								border: {
+									color: '#333',
+								},
+							},
+						},
 					} as any
 				}
 			>
@@ -63,6 +72,7 @@ const App = () => {
 							<HelpSection />
 							<GetStarted />
 							<Forum />
+							<Credits />
 							<Social />
 							<FAQs />
 						</Box>

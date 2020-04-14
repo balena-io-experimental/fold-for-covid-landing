@@ -36,7 +36,7 @@ export const DownloadImage = ({
 	};
 
 	return (
-		<ImageFormContainer mt={3} width="80%">
+		<ImageFormContainer mt={3} width="60%">
 			{deviceType && selectedApp && (
 				<ImageForm
 					downloadUrl={DOWNLOAD_IMAGE_ENDPOINT}

@@ -1,11 +1,23 @@
 import React from 'react';
-import { Flex, Heading, Box, Tabs, Tab, Txt, Button, Select } from 'rendition';
+import {
+	Flex,
+	Heading,
+	Box,
+	Tabs,
+	Tab,
+	Txt,
+	Button,
+	Select,
+	Img,
+} from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import BalenaSdk from 'balena-sdk';
+import insertCard from '../img/insert-sd.gif';
+import flashCard from '../img/etcher.gif';
 
 export const API_ENDPOINT = 'https://api.balena-cloud.com';
 
@@ -84,7 +96,9 @@ const GetStarted = () => {
 		sdk.models.config
 			.getDeviceTypes()
 			.then((res) =>
-				res.filter((deviceType) => deviceType.state !== 'DISCONTINUED'),
+				res
+					.filter((deviceType) => deviceType.state !== 'DISCONTINUED')
+					.sort((a, b) => a.name.localeCompare(b.name)),
 			)
 			.then(setDeviceTypes)
 			.catch(handleError);
@@ -151,6 +165,7 @@ const GetStarted = () => {
 			mt={3}
 			mb={3}
 			mr={3}
+			maxWidth={300}
 			options={compatibleDeviceTypes}
 			valueKey="slug"
 			labelKey="name"
@@ -216,7 +231,7 @@ const GetStarted = () => {
 								scientists!
 							</Txt.p>
 
-							<Txt.p fontSize={2}>
+							<Txt.p mt={3} fontSize={2}>
 								<Txt.span bold>WARNING:</Txt.span> This project is intended to
 								be used on a spare, unused computer. It will overwrite your
 								existing hard drive contents, causing loss of ALL data on the
@@ -264,17 +279,15 @@ const GetStarted = () => {
 							justifyContent="center"
 							width="500px"
 							height="300px"
-							bg="lightblue"
 						>
-							Etcher Gif Place holder
+							<Img src={flashCard} alt="Flash card with Etcher" />
 						</Flex>
 					</Step>
 					<Step index={4}>
 						<Txt fontSize={2}>
 							Once complete,{' '}
 							<Txt.span bold>
-								place the SD Card in your Raspberry Pi / Jetson Nano, and power
-								it on
+								place the SD Card in your device, and power it on
 							</Txt.span>
 							. Your device will automatically join the Fleet, and begin
 							crunching data!{' '}
@@ -287,9 +300,8 @@ const GetStarted = () => {
 							justifyContent="center"
 							width="500px"
 							height="300px"
-							bg="lightblue"
 						>
-							Gif Place holder
+							<Img src={insertCard} alt="Insert card in device" />
 						</Flex>
 					</Step>
 					<Step index={5}>

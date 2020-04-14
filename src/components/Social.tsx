@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 
 const Social = () => {
 	return (
-		<Box id="social" mt={5} py={[5, 5, 6]} bg="#333" width="100%">
+		<Box id="social" py={[5, 5, 6]} bg="#333" width="100%">
 			<Flex
 				mx="auto"
 				maxWidth="800px"
@@ -55,6 +56,17 @@ const Social = () => {
 						light
 					>
 						Instagram
+					</Button>
+
+					<Button
+						mb={3}
+						mr={3}
+						minWidth={145}
+						icon={<FontAwesomeIcon icon={faLinkedinIn} />}
+						outline
+						light
+					>
+						Linkedin
 					</Button>
 				</Flex>
 			</Flex>

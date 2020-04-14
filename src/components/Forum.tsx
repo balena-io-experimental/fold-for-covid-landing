@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Txt, Button } from 'rendition';
 
 const Forum = () => {
 	return (
-		<Box id="community" mt={[4, 4, 5, 5]} p={1} bg="#fff" width="100%">
+		<Box id="community" p={1} py={[4, 4, 5, 5]} bg="#fff" width="100%">
 			<Flex
 				mx="auto"
 				maxWidth="1280px"
