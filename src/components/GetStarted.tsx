@@ -81,8 +81,6 @@ const GetStarted = () => {
 	>();
 
 	React.useEffect(() => {
-		const appIds = [1635296, 1635297];
-
 		sdk.models.config
 			.getDeviceTypes()
 			.then((res) =>
@@ -96,7 +94,13 @@ const GetStarted = () => {
 				options: {
 					$select: ['id', 'device_type', 'app_name'],
 					$filter: {
-						id: { $in: appIds },
+						is_public: true,
+						slug: {
+							$in: [
+								'balenalabs/rosetta-at-home-amd64',
+								'balenalabs/rosetta-at-home-arm',
+							],
+						},
 					},
 				},
 			})
