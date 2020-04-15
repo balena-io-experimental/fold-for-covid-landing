@@ -88,10 +88,16 @@ const App = () => {
 							text: { main: '#333', light: '#737373' },
 							border: { dark: '#63ba97', light: '#eff8f4' },
 						},
-						fontSizes: [12, 14, 16, 18, 20, 24, 38, 48],
+						fontSizes: [12, 14, 16, 18, 20, 24, 38, 50],
 						font: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
+						titleFont: `-apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
 						radius: 0,
-						button: { border: { radius: 0 } },
+						button: {
+							border: { radius: 0 },
+							font: {
+								weight: 600,
+							},
+						},
 						tabs: { gap: 'xxsmall' },
 						tab: {
 							border: {
