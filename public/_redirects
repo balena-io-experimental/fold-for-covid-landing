@@ -1,5 +1,9 @@
 http://foldforcovid.com/* https://foldforcovid.io/ 301!
 http://www.foldforcovid.com/* https://foldforcovid.io/ 301!
+http://foldforcovid.netlify.com/* https://foldforcovid.io/ 301!
+http://fold4covid.com/* https://foldforcovid.io/ 301!
 https://foldforcovid.com/* https://foldforcovid.io/ 301!
 https://www.foldforcovid.com/* https://foldforcovid.io/ 301!
-/* /index.html 200
+https://foldforcovid.netlify.com/* https://foldforcovid.io/ 301!
+https://fold4covid.com/* https://foldforcovid.io/ 301!
+/* / 200
