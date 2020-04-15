@@ -1,6 +1,8 @@
 import React from 'react';
 import { Flex, Box, Img } from 'rendition';
-import rosettaAtHomeLogo from '../img/rosetta-at-home-logo.png';
+import rosettaAtHomeLogo from '../img/rosetta-home-logo.png';
+import rosettaAtHome2xLogo from '../img/rosetta-home-logo@2x.png';
+import rosettaAtHome3xLogo from '../img/rosetta-home-logo@3x.png';
 import armLogo from '../img/arm-logo.png';
 import arm2xLogo from '../img/arm-logo@2x.png';
 import arm3xLogo from '../img/arm-logo@3x.png';
@@ -61,7 +63,12 @@ export const Credits = () => {
 					size={30}
 					alt="University of Washington logo"
 				/>
-				<Logo src={rosettaAtHomeLogo} size={30} alt="Rosetta at home logo" />
+				<Logo
+					src={rosettaAtHomeLogo}
+					srcSet={`${rosettaAtHomeLogo}, ${rosettaAtHome2xLogo} 2x, ${rosettaAtHome3xLogo} 3x`}
+					size={30}
+					alt="Rosetta at home logo"
+				/>
 				<Logo
 					src={armLogo}
 					srcSet={`${armLogo}, ${arm2xLogo} 2x, ${arm3xLogo} 3x`}
