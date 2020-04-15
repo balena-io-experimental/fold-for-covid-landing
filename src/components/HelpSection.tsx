@@ -21,11 +21,12 @@ const HelpSection = () => {
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
-				<Heading.h2 bold>What is 4R, and how does it help?</Heading.h2>
+				<Heading.h2 bold>
+					What is Fold for covid, and how does it help?
+				</Heading.h2>
 				<Txt.p mt={3} fontSize={2}>
-					The 4R Project (Reusing Redundant & Raspberry computer for Rosetta)
-					makes it easy to donate spare compute capacity to support Covid-19
-					research. This effort contributes to the{' '}
+					The Fold for covid Project makes it easy to donate spare compute
+					capacity to support Covid-19 research. This effort contributes to the{' '}
 					<ExternalLink
 						label="Rosetta@Home"
 						href="https://boinc.bakerlab.org"

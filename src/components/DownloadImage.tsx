@@ -48,7 +48,12 @@ export const DownloadImage = ({
 					getDownloadSize={() => Promise.resolve('')}
 					onDownload={() => null}
 					setIsDownloadingConfig={() => null}
-					configurationComponent={<></>}
+					// This will result in the .local domain being `foldforcovid.local`
+					configurationComponent={
+						<>
+							<input type="hidden" name="hostname" value="foldforcovid" />
+						</>
+					}
 				/>
 			)}
 		</ImageFormContainer>

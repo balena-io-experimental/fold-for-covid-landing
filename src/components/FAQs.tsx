@@ -34,8 +34,8 @@ const faqs = [
 				After your device is flashed and powered up, simply open up a web
 				browser on another computer on the same network. Enter the address:{' '}
 				<ExternalLink
-					href="http://4rproject.local"
-					label="4rproject.local"
+					href="http://foldforcovid.local"
+					label="foldforcovid.local"
 				></ExternalLink>
 				, and you will see the jobs your device(s) are currently running.
 			</>
