@@ -15,18 +15,16 @@ const HelpSection = () => {
 			mx="auto"
 			maxWidth="1280px"
 			flexDirection={['column', 'column', 'row', 'row']}
-			alignItems="center"
+			alignItems="flex-start"
 			justifyContent="space-between"
 			px={3}
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
-				<Heading.h2 bold>
-					What is Fold for covid, and how does it help?
-				</Heading.h2>
+				<Heading.h2 bold>How does this project help?</Heading.h2>
 				<Txt.p mt={3} fontSize={2}>
-					The Fold for covid Project makes it easy to donate spare compute
-					capacity to support Covid-19 research. This effort contributes to the{' '}
+					Donate spare compute capacity to support COVID-19 research-- all from
+					a few simple steps. This effort contributes to the{' '}
 					<ExternalLink
 						label="Rosetta@Home"
 						href="https://boinc.bakerlab.org"
@@ -37,11 +35,11 @@ const HelpSection = () => {
 						label="Baker Laboratory at the University of Washington"
 					/>
 					, which uses distributed computing to help scientists and doctors find
-					potential treatments for Covid-19.
+					potential treatments for COVID-19.
 				</Txt.p>
 				<Txt.p mt={3} fontSize={2}>
 					Your contributions help researchers look for proteins that bind to the
-					famous "spike" protein on Covid-19. By finding these binding proteins,
+					famous “spike” protein on COVID-19. By finding these binding proteins,
 					doctors hope to develop medicines that prevent the virus from entering
 					healthy cells.
 				</Txt.p>
@@ -50,7 +48,7 @@ const HelpSection = () => {
 					the fight!
 				</Txt.p>
 				<Button
-					onClick={() => history.push('/how-does-this-help')}
+					onClick={() => history.push('/how-does-it-work')}
 					outline
 					mb={2}
 					mt={3}
@@ -60,9 +58,7 @@ const HelpSection = () => {
 			</Box>
 
 			<Box flex={1} mt={[3, 3, 0, 0]} ml={[0, 0, 3, 3]}>
-				<Heading.h2 bold fontSize={3}>
-					Join the fight!
-				</Heading.h2>
+				<Heading.h2 bold>Join the fight!</Heading.h2>
 				<Flex
 					width="100%"
 					justifyContent={['center']}

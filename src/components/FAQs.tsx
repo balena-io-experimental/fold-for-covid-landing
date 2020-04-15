@@ -5,8 +5,18 @@ import { ExternalLink } from './ExternalLink';
 const faqs = [
 	{
 		label: 'What is Rosetta@Home?',
-		panel:
-			'Rosetta is a distributed computing project, run by the Baker Lab at the University of Washington. Researchers are studying protein binding, to help find compounds that bind to the “spike” protein on the coronavirus molecule.',
+		panel: (
+			<>
+				<ExternalLink label="Rosetta" href="https://boinc.bakerlab.org" /> is a
+				distributed computing project, run by the{' '}
+				<ExternalLink
+					label="Baker Lab at the University of Washington"
+					href="https://bakerlab.org"
+				/>
+				. Researchers are studying protein binding, to help find compounds that
+				bind to the “spike” protein on the coronavirus molecule.
+			</>
+		),
 	},
 	{
 		label: 'How does distributed computing work?',
@@ -36,8 +46,23 @@ const faqs = [
 				<ExternalLink
 					href="http://foldforcovid.local"
 					label="foldforcovid.local"
-				></ExternalLink>
+				/>
 				, and you will see the jobs your device(s) are currently running.
+			</>
+		),
+	},
+	{
+		label: 'It seems like my device is not getting any work units to process?',
+		panel: (
+			<>
+				It seems like my device is not getting any work units to process? On
+				occasion, the Baker Lab does run out of work units to send users. They
+				are quick to make more, so sit tight, and give it a few hours until the
+				queue is refilled with jobs. You can view the queue status here:{' '}
+				<ExternalLink
+					href="https://boinc.bakerlab.org/rosetta/server_status.php"
+					label="boinc.bakerlab.org/rosetta/server_status.php"
+				/>
 			</>
 		),
 	},

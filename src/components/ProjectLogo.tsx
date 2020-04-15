@@ -1,10 +1,10 @@
 import React from 'react';
 import { Flex, Txt } from 'rendition';
 
-const ProjectLogo = () => {
+const ProjectLogo = ({ dark }: { dark?: boolean }) => {
 	return (
 		<Flex alignItems="center">
-			<Txt whitespace="nowrap" bold color="#fff">
+			<Txt whitespace="nowrap" bold color={dark ? 'text.main' : '#fff'}>
 				Fold for covid
 			</Txt>
 		</Flex>
