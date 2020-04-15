@@ -278,11 +278,11 @@ const GetStarted = ({
 						<Txt fontSize={2}>
 							<Txt.span bold>
 								To view your device’s current activity, visit your Pi’s new
-								hostname, 4Rproject.local, in a web browser like this:{' '}
+								hostname, foldforcovid.local, in a web browser like this:{' '}
 							</Txt.span>
 							<ExternalLink
-								href="http://4rproject.local"
-								label="4rproject.local"
+								href="http://foldforcovid.local"
+								label="foldforcovid.local"
 							/>
 							.
 						</Txt>
