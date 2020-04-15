@@ -18,6 +18,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import BalenaSdk from 'balena-sdk';
 import insertCard from '../img/insert-sd.gif';
 import flashCard from '../img/etcher.gif';
+import tasksImg from '../img/tasks.png';
 
 const handleError = (err: Error) => {
 	// TODO: Show notification instead.
@@ -256,8 +257,9 @@ const GetStarted = ({
 						<Flex
 							alignItems="center"
 							justifyContent="center"
-							width="500px"
-							height="300px"
+							maxHeight="300px"
+							maxWidth="500px"
+							pt={2}
 						>
 							<Img src={flashCard} alt="Flash card with Etcher" />
 						</Flex>
@@ -277,8 +279,9 @@ const GetStarted = ({
 						<Flex
 							alignItems="center"
 							justifyContent="center"
-							width="500px"
-							height="300px"
+							maxHeight="300px"
+							maxWidth="500px"
+							pt={2}
 						>
 							<Img src={insertCard} alt="Insert card in device" />
 						</Flex>
@@ -287,7 +290,7 @@ const GetStarted = ({
 						<Txt fontSize={2}>
 							<Txt.span bold>
 								To view your device’s current activity, visit your Pi’s new
-								hostname, 4Rproject.local, in a web browser like this:
+								hostname, 4Rproject.local, in a web browser like this:{' '}
 							</Txt.span>
 							<ExternalLink
 								href="http://4rproject.local"
@@ -298,11 +301,11 @@ const GetStarted = ({
 						<Flex
 							alignItems="center"
 							justifyContent="center"
-							width="500px"
-							height="300px"
-							bg="lightblue"
+							maxHeight="300px"
+							maxWidth="500px"
+							pt={2}
 						>
-							Screenshot Place holder
+							<Img src={tasksImg} alt="Rosetta tasks on your device" />
 						</Flex>
 					</Step>
 				</Box>
