@@ -161,7 +161,7 @@ export const DownloadEtcher = () => {
 	/* tslint:enable */
 
 	const linkLabel = initialized ? (
-		<Txt.span>{`Download Etcher ${link?.text
+		<Txt.span>{`Download ${link?.text
 			.split(' ')
 			.slice(1, 4)
 			.join(' ')}`}</Txt.span>
