@@ -5,7 +5,13 @@ import { Box, Flex, Txt, Heading, Button } from 'rendition';
 export const CTASection = () => {
 	return (
 		<Box my={4} bg="primary.light" width="100%">
-			<Flex alignItems="flex-end" py={5} maxWidth="1280px" mx="auto">
+			<Flex
+				alignItems={['center', 'center', 'center', 'flex-end']}
+				flexDirection={['column', 'column', 'row', 'row']}
+				py={5}
+				maxWidth="1280px"
+				mx="auto"
+			>
 				<img
 					aria-hidden="true"
 					src={CovidComputer}
@@ -13,7 +19,13 @@ export const CTASection = () => {
 					role="presentation"
 					style={{ height: 80, marginLeft: 20 }}
 				/>
-				<Flex mx={5} flexDirection="column" maxWidth={375}>
+				<Flex
+					mx={5}
+					my={[3, 3, 0, 0]}
+					alignSelf="flex-start"
+					flexDirection="column"
+					maxWidth={375}
+				>
 					<Txt color="primary.main" bold fontSize={0}>
 						Join the COVID-19 fight
 					</Txt>

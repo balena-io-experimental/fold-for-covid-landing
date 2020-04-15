@@ -39,7 +39,7 @@ const Header = () => {
 			justifyContent="space-between"
 			bg={renderDarkMode ? 'text.main' : '#fff'}
 		>
-			<Box mx="auto" mt={2} py={3} width="100%" maxWidth="1215px">
+			<Box mx="auto" mt={2} py={3} width="100%" px={3} maxWidth="1280px">
 				<Flex
 					alignItems="center"
 					flexDirection={['column', 'column', 'row', 'row']}
@@ -50,7 +50,7 @@ const Header = () => {
 							<ProjectLogo dark={!renderDarkMode} />
 						</InternalLink>
 					</Flex>
-					<Box py={[3, 3, 0, 0]}>
+					<Txt align="center" py={[3, 3, 0, 0]}>
 						<Link
 							dark={!renderDarkMode}
 							href="/about-the-project"
@@ -69,7 +69,7 @@ const Header = () => {
 							external
 							label="Github"
 						/>
-					</Box>
+					</Txt>
 					<Flex alignSelf={['center', 'center', 'flex-end']}>
 						<Button
 							href="/#get-started"
