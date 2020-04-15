@@ -10,6 +10,19 @@ import tasksImg from '../img/tasks.png';
 import { DownloadEtcher } from './DownloadEtcher';
 import { LazyImage } from './LazyImage';
 
+const deviceTypeWeights: { [slug: string]: number } = {
+	'raspberrypi4-64': 100,
+	'raspberrypi3-64': 90,
+};
+
+const getDeviceTypeImportanceWeight = (deviceTypeSlug: string) => {
+	if (deviceTypeWeights[deviceTypeSlug]) {
+		return deviceTypeWeights[deviceTypeSlug];
+	}
+
+	return 0;
+};
+
 const handleError = (err: Error) => {
 	// TODO: Show notification instead.
 	console.error(err);
@@ -86,7 +99,12 @@ const GetStarted = ({
 			.then((res) =>
 				res
 					.filter((deviceType) => deviceType.state !== 'DISCONTINUED')
-					.sort((a, b) => a.name.localeCompare(b.name)),
+					.sort((a, b) => a.name.localeCompare(b.name))
+					.sort(
+						(a, b) =>
+							getDeviceTypeImportanceWeight(b.slug) -
+							getDeviceTypeImportanceWeight(a.slug),
+					),
 			)
 			.then(setDeviceTypes)
 			.catch(handleError);
