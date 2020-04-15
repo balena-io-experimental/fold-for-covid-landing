@@ -5,10 +5,8 @@ import join_2 from '../img/join_2.svg';
 import join_3 from '../img/join_3.svg';
 import { ExternalLink } from './ExternalLink';
 import { InfoStep } from './InfoStep';
-import { useHistory } from 'react-router-dom';
 
 const HelpSection = () => {
-	const history = useHistory();
 	return (
 		<Flex
 			mt={5}
@@ -47,12 +45,7 @@ const HelpSection = () => {
 					Do you have a spare computer or single board computer at home? Help
 					the fight!
 				</Txt.p>
-				<Button
-					onClick={() => history.push('/how-does-it-work')}
-					outline
-					mb={2}
-					mt={3}
-				>
+				<Button outline mb={2} mt={3} href="/how-does-it-work">
 					Read More
 				</Button>
 			</Box>
@@ -81,7 +74,7 @@ const HelpSection = () => {
 						img={join_3}
 					></InfoStep>
 				</Flex>
-				<Button mt={3} mb={[2, 2, 1]} primary>
+				<Button mt={3} mb={[2, 2, 1]} href="#get-started" primary>
 					Get Started
 				</Button>
 				<Txt mt={2} color="text.light">
