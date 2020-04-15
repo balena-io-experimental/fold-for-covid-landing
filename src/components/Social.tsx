@@ -3,7 +3,6 @@ import { Box, Flex, Heading, Button } from 'rendition';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 
 const Social = () => {
@@ -18,8 +17,7 @@ const Social = () => {
 				justifyContent="center"
 			>
 				<Heading.h2 align="center" fontSize={[5, 5, 5, 6]} color="#fff">
-					Tell everyone you know about this project so they too can help fight
-					the pandemic!
+					Add as many devices as you can, and tell everyone you know
 				</Heading.h2>
 				<Flex
 					alignItems="center"
@@ -46,16 +44,6 @@ const Social = () => {
 						mr={3}
 					>
 						Facebook
-					</Button>
-					<Button
-						mb={3}
-						mr={3}
-						minWidth={145}
-						icon={<FontAwesomeIcon icon={faInstagram} />}
-						outline
-						light
-					>
-						Instagram
 					</Button>
 
 					<Button

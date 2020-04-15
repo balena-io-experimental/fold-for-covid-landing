@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Flex, Box, Txt, Link } from 'rendition';
-import logo from '../img/logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
@@ -85,18 +84,6 @@ const Footer = () => {
 						))}
 					</Flex>
 				</Flex>
-				<Box mt={3}>
-					<Txt.span pr={2} fontSize={0} color="#fff">
-						This project made possible by
-					</Txt.span>
-					<span>
-						<img
-							alt="Balena"
-							src={logo}
-							style={{ height: 17, verticalAlign: 'middle', paddingBottom: 2 }}
-						/>
-					</span>
-				</Box>
 			</Box>
 		</Flex>
 	);

@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Flex, Box, Txt, Link as RLink, Button } from 'rendition';
 import ProjectLogo from './ProjectLogo';
-import { Link as InternalLink } from 'react-router-dom';
+import { Link as InternalLink, useRouteMatch } from 'react-router-dom';
 interface LinkProps {
 	href: string;
 	label: string;
 	external?: boolean;
+	dark?: boolean;
 }
 
 const Link = (props: LinkProps) => {
@@ -15,7 +16,7 @@ const Link = (props: LinkProps) => {
 	}
 	return (
 		<RLink
-			color="#fff"
+			color={props.dark ? 'text.main' : '#fff'}
 			fontSize={0}
 			href={props.href}
 			pr={3}
@@ -29,14 +30,16 @@ const Link = (props: LinkProps) => {
 };
 
 const Header = () => {
+	const match = useRouteMatch('/');
+	const renderDarkMode = match?.isExact;
 	return (
 		<Flex
 			width="100%"
 			flexDirection="column"
 			justifyContent="space-between"
-			bg="#333333"
+			bg={renderDarkMode ? 'text.main' : '#fff'}
 		>
-			<Box mx="auto" mt={3} py={3} width="100%" maxWidth="1215px">
+			<Box mx="auto" mt={2} py={3} width="100%" maxWidth="1215px">
 				<Flex
 					alignItems="center"
 					flexDirection={['column', 'column', 'row', 'row']}
@@ -44,21 +47,37 @@ const Header = () => {
 				>
 					<Flex flex={1}>
 						<InternalLink to="/">
-							<ProjectLogo />
+							<ProjectLogo dark={!renderDarkMode} />
 						</InternalLink>
 					</Flex>
 					<Box py={[3, 3, 0, 0]}>
-						<Link href="/how-does-this-help" label="How does this help?" />
-						<Link href="/#community" label="Community" />
-						<Link href="/#faqs" label="FAQs" />
 						<Link
+							dark={!renderDarkMode}
+							href="/about-the-project"
+							label="About the project"
+						/>
+						<Link
+							dark={!renderDarkMode}
+							href="/how-does-it-work"
+							label="How does it work?"
+						/>
+						<Link dark={!renderDarkMode} href="/#community" label="Community" />
+						<Link dark={!renderDarkMode} href="/#faqs" label="FAQs" />
+						<Link
+							dark={!renderDarkMode}
 							href="https://github.com/balenalabs/rosetta-at-home"
 							external
 							label="Github"
 						/>
 					</Box>
 					<Flex alignSelf={['center', 'center', 'flex-end']}>
-						<Button href="/#get-started" label="Get Started" outline light />
+						<Button
+							href="/#get-started"
+							label="Get Started"
+							outline={renderDarkMode}
+							light={renderDarkMode}
+							primary={!renderDarkMode}
+						/>
 					</Flex>
 				</Flex>
 			</Box>

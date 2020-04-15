@@ -11,10 +11,11 @@ import GetStarted from './GetStarted';
 import DeviceMap from './DeviceMap';
 import reset from 'styled-reset';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
-import { HowDoesThisHelp } from './HowDoesThisHelp';
+import { HowDoesItWork } from './HowDoesItWork';
 import { SubHeader } from './SubHeader';
 import { Credits } from './Credits';
 import BalenaSdk from 'balena-sdk';
+import { AboutTheProject } from './AboutTheProject';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -123,15 +124,18 @@ const App = () => {
 							<SubHeader />
 							<DeviceMap devices={devices} />
 							<HelpSection />
+							<Credits />
 							<GetStarted applications={applications} sdk={sdk} />
 							<Forum />
-							<Credits />
 							<Social />
 							<FAQs />
 						</Box>
 					</Route>
-					<Route path="/how-does-this-help">
-						<HowDoesThisHelp />
+					<Route exact path="/about-the-project">
+						<AboutTheProject />
+					</Route>
+					<Route exact path="/how-does-it-work">
+						<HowDoesItWork />
 					</Route>
 				</Switch>
 				<Footer />

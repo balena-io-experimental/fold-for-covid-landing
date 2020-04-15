@@ -14,7 +14,7 @@ const Forum = () => {
 			>
 				<Box mr={[0, 0, 3, 3]} mb={[3, 3, 0, 0]}>
 					<Heading.h2 bold fontSize={5}>
-						Come, and join the forums.
+						Come, join us in the forums.
 					</Heading.h2>
 					<Txt fontSize={1}>
 						Running the project already? Have questions? Want to hang out?

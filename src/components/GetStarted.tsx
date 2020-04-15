@@ -148,8 +148,10 @@ const GetStarted = ({
 
 	return (
 		<Box id="get-started" bg="primary.light">
-			<Flex mt={4} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
-				<Heading.h2 bold>Get Started</Heading.h2>
+			<Flex mt={2} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
+				<Heading.h2 pt={4} bold>
+					Get Started
+				</Heading.h2>
 
 				<Box mt={3} maxWidth="100%" width="600px">
 					<Tabs
@@ -256,13 +258,10 @@ const GetStarted = ({
 						<Txt fontSize={2}>
 							Once complete,{' '}
 							<Txt.span bold>
-								place the SD Card in your device, and power it on
+								place the SD Card in your {selectedDeviceType?.name}, and power
+								it on
 							</Txt.span>
-							. Your device will automatically join the Fleet, and begin
-							crunching data!{' '}
-							<span aria-label="Partying Face Emoji" role="img">
-								🥳
-							</span>
+							.
 						</Txt>
 						<Flex
 							alignItems="center"
@@ -276,9 +275,18 @@ const GetStarted = ({
 					</Step>
 					<Step index={5}>
 						<Txt fontSize={2}>
-							<Txt.span bold>
-								To view your device’s current activity, visit your Pi’s new
-								hostname, foldforcovid.local, in a web browser like this:{' '}
+							<Txt.span>
+								Your {selectedDeviceType?.name} will automatically join the
+								Fleet, and begin crunching data!
+							</Txt.span>
+						</Txt>
+					</Step>
+					<Step index={6}>
+						<Txt fontSize={2}>
+							<Txt.span>
+								To view your {selectedDeviceType?.name}'s current activity,
+								visit your {selectedDeviceType?.name}’s new hostname,
+								foldforcovid.local, in a web browser like this:{' '}
 							</Txt.span>
 							<ExternalLink
 								href="http://foldforcovid.local"
