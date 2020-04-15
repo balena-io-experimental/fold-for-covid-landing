@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Flex, Box, Txt, Link as RLink, Button } from 'rendition';
 import ProjectLogo from './ProjectLogo';
 import { Link as InternalLink, useRouteMatch } from 'react-router-dom';
+
 interface LinkProps {
 	href: string;
 	label: string;
@@ -42,35 +43,51 @@ const Header = () => {
 			<Box mx="auto" mt={2} py={3} width="100%" px={3} maxWidth="1280px">
 				<Flex
 					alignItems="center"
-					flexDirection={['column', 'column', 'row', 'row']}
+					flexDirection={['column', 'column', 'column', 'row']}
 					justifyContent="space-between"
 				>
 					<Flex flex={1}>
 						<InternalLink to="/">
-							<ProjectLogo dark={!renderDarkMode} />
+							<Flex
+								alignItems="center"
+								justifyContent="center"
+								flexDirection="column"
+							>
+								<ProjectLogo dark={!renderDarkMode} />
+							</Flex>
 						</InternalLink>
 					</Flex>
-					<Txt align="center" py={[3, 3, 0, 0]}>
-						<Link
-							dark={!renderDarkMode}
-							href="/about-the-project"
-							label="About the project"
-						/>
-						<Link
-							dark={!renderDarkMode}
-							href="/how-does-it-work"
-							label="How does it work?"
-						/>
-						<Link dark={!renderDarkMode} href="/#community" label="Community" />
-						<Link dark={!renderDarkMode} href="/#faqs" label="FAQs" />
-						<Link
-							dark={!renderDarkMode}
-							href="https://github.com/balenalabs/rosetta-at-home"
-							external
-							label="Github"
-						/>
-					</Txt>
-					<Flex alignSelf={['center', 'center', 'flex-end']}>
+					<Flex
+						alignItems="center"
+						justifyContent="center"
+						flexDirection={['column', 'column', 'row']}
+					>
+						<Box>
+							<Txt align="center" py={[3, 3, 0, 0]}>
+								<Link
+									dark={!renderDarkMode}
+									href="/about-the-project"
+									label="About the project"
+								/>
+								<Link
+									dark={!renderDarkMode}
+									href="/how-does-it-work"
+									label="How does it work?"
+								/>
+								<Link
+									dark={!renderDarkMode}
+									href="/#community"
+									label="Community"
+								/>
+								<Link dark={!renderDarkMode} href="/#faqs" label="FAQs" />
+								<Link
+									dark={!renderDarkMode}
+									href="https://github.com/balenalabs/rosetta-at-home"
+									external
+									label="Github"
+								/>
+							</Txt>
+						</Box>
 						<Button
 							href="/#get-started"
 							label="Get Started"

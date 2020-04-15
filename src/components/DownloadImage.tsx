@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageForm } from '@bit/sradevski.balena-image-form.image-form';
-import { Box, Txt } from 'rendition';
+import { Box } from 'rendition';
 import * as BalenaSdk from 'balena-sdk';
 import styled from 'styled-components';
 

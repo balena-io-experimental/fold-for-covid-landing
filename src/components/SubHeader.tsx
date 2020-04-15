@@ -7,7 +7,7 @@ export const SubHeader = () => {
 			<Box mx="auto" pb={3} px={3} width="100%" maxWidth="1280px">
 				<Heading.h1
 					color="#fff"
-					fontSize={[6, 6, 6, 7]}
+					fontSize={[5, 6, 6, 7]}
 					style={{ lineHeight: 1.28 }}
 					bold
 				>
