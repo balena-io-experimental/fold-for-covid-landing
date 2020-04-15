@@ -19,17 +19,10 @@ import BalenaSdk from 'balena-sdk';
 import insertCard from '../img/insert-sd.gif';
 import flashCard from '../img/etcher.gif';
 
-export const API_ENDPOINT = 'https://api.balena-cloud.com';
-
 const handleError = (err: Error) => {
 	// TODO: Show notification instead.
 	console.error(err);
 };
-
-const sdk = BalenaSdk({
-	apiUrl: API_ENDPOINT,
-	isBrowser: true,
-});
 
 const getAppArch = (
 	app: BalenaSdk.Application,
@@ -42,6 +35,7 @@ const getAppArch = (
 const getCompatibleDeviceTypes = (
 	app: BalenaSdk.Application,
 	deviceTypes: BalenaSdk.DeviceType[],
+	sdk: BalenaSdk.BalenaSDK,
 ) => {
 	const targetArch = getAppArch(app, deviceTypes);
 
@@ -73,7 +67,13 @@ const Step = ({ index, children }: StepProps) => (
 	</Flex>
 );
 
-const GetStarted = () => {
+const GetStarted = ({
+	applications,
+	sdk,
+}: {
+	sdk: BalenaSdk.BalenaSDK;
+	applications: BalenaSdk.Application[] | undefined;
+}) => {
 	const [selectedAppArch, setSelectedAppArch] = React.useState('aarch64');
 
 	const [selectedApp, setSelectedApp] = React.useState<
@@ -88,9 +88,6 @@ const GetStarted = () => {
 	const [deviceTypes, setDeviceTypes] = React.useState<
 		BalenaSdk.DeviceType[] | undefined
 	>();
-	const [applications, setApplications] = React.useState<
-		BalenaSdk.Application[] | undefined
-	>();
 
 	React.useEffect(() => {
 		sdk.models.config
@@ -102,25 +99,7 @@ const GetStarted = () => {
 			)
 			.then(setDeviceTypes)
 			.catch(handleError);
-		sdk.pine
-			.get<BalenaSdk.Application>({
-				resource: 'application',
-				options: {
-					$select: ['id', 'device_type', 'app_name'],
-					$filter: {
-						is_public: true,
-						slug: {
-							$in: [
-								'balenalabs/rosetta-at-home-amd64',
-								'balenalabs/rosetta-at-home-arm',
-							],
-						},
-					},
-				},
-			})
-			.then(setApplications)
-			.catch(handleError);
-	}, []);
+	}, [sdk.models.config]);
 
 	React.useEffect(() => {
 		if (!deviceTypes || !applications || !selectedAppArch) {
@@ -143,9 +122,9 @@ const GetStarted = () => {
 
 		setSelectedApp(compatibleApp);
 		setCompatibleDeviceTypes(
-			getCompatibleDeviceTypes(compatibleApp, deviceTypes),
+			getCompatibleDeviceTypes(compatibleApp, deviceTypes, sdk),
 		);
-	}, [deviceTypes, applications, selectedAppArch]);
+	}, [deviceTypes, applications, selectedAppArch, sdk.models.os, sdk]);
 
 	React.useEffect(() => {
 		if (

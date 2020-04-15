@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Txt, Button } from 'rendition';
+import { Box, Txt, Button, Spinner } from 'rendition';
 import styled from 'styled-components';
 
 export interface CountIndicatorProps {
-	count: number;
+	count: number | undefined;
 }
 
 const Container = styled(Box)`
@@ -21,9 +21,12 @@ const Container = styled(Box)`
 
 export const CountIndicator = ({ count }: CountIndicatorProps) => (
 	<Container px={4} py={3}>
-		<Txt color="primary.main" align="center" bold fontSize={7}>
-			{count.toLocaleString()}
-		</Txt>
+		{count != null && (
+			<Txt color="primary.main" align="center" bold fontSize={7}>
+				{count.toLocaleString()}
+			</Txt>
+		)}
+		{count == null && <Spinner show={true} width={'100%'} my={3} />}
 		<Txt maxWidth={200} align="center">
 			Computers fighting COVID-19 pandemic around the world
 		</Txt>
