@@ -1,24 +1,14 @@
 import React from 'react';
-import {
-	Flex,
-	Heading,
-	Box,
-	Tabs,
-	Tab,
-	Txt,
-	Button,
-	Select,
-	Img,
-} from 'rendition';
+import { Flex, Heading, Box, Tabs, Tab, Txt, Select } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import BalenaSdk from 'balena-sdk';
 import insertCard from '../img/insert-sd.gif';
 import flashCard from '../img/etcher.gif';
 import tasksImg from '../img/tasks.png';
+import { DownloadEtcher } from './DownloadEtcher';
+import { LazyImage } from './LazyImage';
 
 const handleError = (err: Error) => {
 	// TODO: Show notification instead.
@@ -232,9 +222,7 @@ const GetStarted = ({
 								label="balenaEtcher"
 							/>
 						</Txt>
-						<Button mt={3} primary icon={<FontAwesomeIcon icon={faDownload} />}>
-							Download Now
-						</Button>
+						<DownloadEtcher />
 					</Step>
 					<Step index={2}>
 						<Txt fontSize={2} bold>
@@ -261,7 +249,7 @@ const GetStarted = ({
 							maxWidth="500px"
 							pt={2}
 						>
-							<Img src={flashCard} alt="Flash card with Etcher" />
+							<LazyImage src={flashCard} alt="Flash card with Etcher" />
 						</Flex>
 					</Step>
 					<Step index={4}>
@@ -283,7 +271,7 @@ const GetStarted = ({
 							maxWidth="500px"
 							pt={2}
 						>
-							<Img src={insertCard} alt="Insert card in device" />
+							<LazyImage src={insertCard} alt="Insert card in device" />
 						</Flex>
 					</Step>
 					<Step index={5}>
@@ -305,7 +293,7 @@ const GetStarted = ({
 							maxWidth="500px"
 							pt={2}
 						>
-							<Img src={tasksImg} alt="Rosetta tasks on your device" />
+							<LazyImage src={tasksImg} alt="Rosetta tasks on your device" />
 						</Flex>
 					</Step>
 				</Box>
