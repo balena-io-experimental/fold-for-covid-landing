@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageForm } from '@bit/sradevski.balena-image-form.image-form';
-import { Box } from 'rendition';
+import { Box, Txt } from 'rendition';
 import * as BalenaSdk from 'balena-sdk';
 import styled from 'styled-components';
 
@@ -36,25 +36,27 @@ export const DownloadImage = ({
 	};
 
 	return (
-		<ImageFormContainer mt={3} width="60%">
+		<ImageFormContainer mt={3} width="80%">
 			{deviceType && selectedApp && (
-				<ImageForm
-					downloadUrl={DOWNLOAD_IMAGE_ENDPOINT}
-					appId={selectedApp.id}
-					appName={selectedApp?.app_name}
-					sdk={sdk}
-					rawVersion={'latest'}
-					deviceType={deviceType}
-					getDownloadSize={() => Promise.resolve('')}
-					onDownload={() => null}
-					setIsDownloadingConfig={() => null}
-					// This will result in the .local domain being `foldforcovid.local`
-					configurationComponent={
-						<>
-							<input type="hidden" name="hostname" value="foldforcovid" />
-						</>
-					}
-				/>
+				<>
+					<ImageForm
+						downloadUrl={DOWNLOAD_IMAGE_ENDPOINT}
+						appId={selectedApp.id}
+						appName={selectedApp?.app_name}
+						sdk={sdk}
+						rawVersion={'latest'}
+						deviceType={deviceType}
+						getDownloadSize={() => Promise.resolve('')}
+						onDownload={() => null}
+						setIsDownloadingConfig={() => null}
+						// This will result in the .local domain being `foldforcovid.local`
+						configurationComponent={
+							<>
+								<input type="hidden" name="hostname" value="foldforcovid" />
+							</>
+						}
+					/>
+				</>
 			)}
 		</ImageFormContainer>
 	);

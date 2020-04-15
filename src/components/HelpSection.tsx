@@ -20,7 +20,7 @@ const HelpSection = () => {
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
 				<Heading.h2 bold>How does this project help?</Heading.h2>
-				<Txt.p mt={3} fontSize={2}>
+				<Txt.p mt={3}>
 					Donate spare compute capacity to support COVID-19 research-- all from
 					a few simple steps. This effort contributes to the{' '}
 					<ExternalLink
@@ -35,13 +35,13 @@ const HelpSection = () => {
 					, which uses distributed computing to help scientists and doctors find
 					potential treatments for COVID-19.
 				</Txt.p>
-				<Txt.p mt={3} fontSize={2}>
+				<Txt.p mt={3}>
 					Your contributions help researchers look for proteins that bind to the
 					famous “spike” protein on COVID-19. By finding these binding proteins,
 					doctors hope to develop medicines that prevent the virus from entering
 					healthy cells.
 				</Txt.p>
-				<Txt.p mt={3} fontSize={2}>
+				<Txt.p mt={3}>
 					Do you have a spare computer or single board computer at home? Help
 					the fight!
 				</Txt.p>

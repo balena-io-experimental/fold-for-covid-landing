@@ -186,7 +186,7 @@ const GetStarted = ({
 						>
 							{deviceTypeSelector}
 
-							<Txt.p fontSize={2}>
+							<Txt.p>
 								Getting started on a{' '}
 								<Txt.span bold>{selectedDeviceType?.name}</Txt.span> is simple!
 								Follow these steps to download our ready-made operating system,
@@ -194,7 +194,7 @@ const GetStarted = ({
 								scientists!
 							</Txt.p>
 							{selectedDeviceType?.name?.includes('raspberry') && (
-								<Txt.p fontSize={2}>
+								<Txt.p>
 									<Txt.span bold>
 										Please Note: This project requires a{' '}
 										{selectedDeviceType?.name} with 2GB or 4GB of memory
@@ -214,14 +214,14 @@ const GetStarted = ({
 						>
 							{deviceTypeSelector}
 
-							<Txt.p fontSize={2}>
+							<Txt.p>
 								Getting started on an unused laptop or desktop PC is easy!
 								Follow these steps to download our ready-made operating system,
 								flash it to a USB stick, and begin crunching data to help
 								scientists!
 							</Txt.p>
 
-							<Txt.p mt={3} fontSize={2}>
+							<Txt.p mt={3}>
 								<Txt.span bold>WARNING:</Txt.span> This project is intended to
 								be used on a spare, unused computer. It will overwrite your
 								existing hard drive contents, causing loss of ALL data on the
@@ -258,7 +258,7 @@ const GetStarted = ({
 						<Txt fontSize={2} bold>
 							Launch balenaEtcher
 						</Txt>
-						<Txt fontSize={2} my={3}>
+						<Txt my={3}>
 							choose the file you just downloaded, select your SD card and click
 							"Flash".
 						</Txt>
@@ -266,14 +266,14 @@ const GetStarted = ({
 							alignItems="center"
 							justifyContent="center"
 							maxHeight="300px"
-							maxWidth="500px"
+							maxWidth="400px"
 							pt={2}
 						>
 							<LazyImage src={flashCard} alt="Flash card with Etcher" />
 						</Flex>
 					</Step>
 					<Step index={4}>
-						<Txt fontSize={2}>
+						<Txt>
 							Once complete,{' '}
 							<Txt.span bold>
 								place the SD Card in your {selectedDeviceType?.name}, and power
@@ -285,14 +285,14 @@ const GetStarted = ({
 							alignItems="center"
 							justifyContent="center"
 							maxHeight="300px"
-							maxWidth="500px"
+							maxWidth="400px"
 							pt={2}
 						>
 							<LazyImage src={insertCard} alt="Insert card in device" />
 						</Flex>
 					</Step>
 					<Step index={5}>
-						<Txt fontSize={2}>
+						<Txt>
 							<Txt.span>
 								Your {selectedDeviceType?.name} will automatically join the
 								Fleet, and begin crunching data!
@@ -300,7 +300,7 @@ const GetStarted = ({
 						</Txt>
 					</Step>
 					<Step index={6}>
-						<Txt fontSize={2}>
+						<Txt>
 							<Txt.span>
 								To view your {selectedDeviceType?.name}'s current activity,
 								visit your {selectedDeviceType?.name}’s new hostname,

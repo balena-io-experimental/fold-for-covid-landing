@@ -16,14 +16,20 @@ const Social = () => {
 				px={3}
 				justifyContent="center"
 			>
-				<Heading.h2 align="center" fontSize={[5, 5, 5, 6]} color="#fff">
-					Add as many devices as you can, and tell everyone you know
+				<Heading.h2
+					align="center"
+					fontSize={[6, 6, 6, 58]}
+					style={{ lineHeight: 1.1 }}
+					color="#fff"
+				>
+					Tell everyone you know about this project so they too can help fight
+					the pandemic!
 				</Heading.h2>
 				<Flex
 					alignItems="center"
 					flexDirection={['column', 'row']}
 					justifyContent="center"
-					mt={[4, 4, 3]}
+					mt={4}
 				>
 					<Button
 						mb={3}
