@@ -1,5 +1,5 @@
-https://foldforcovid.com https://foldforcovid.io
-https://www.foldforcovid.com https://foldforcovid.io
-http://foldforcovid.com https://foldforcovid.io
-http://www.foldforcovid.com https://foldforcovid.io
+http://foldforcovid.com/* https://foldforcovid.io/:splat 301!
+http://www.foldforcovid.com/* https://foldforcovid.io/:splat 301!
+https://foldforcovid.com/* https://foldforcovid.io/:splat 301!
+https://www.foldforcovid.com/* https://foldforcovid.io/:splat 301!
 /* /index.html 200
