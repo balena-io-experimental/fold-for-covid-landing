@@ -19,10 +19,13 @@ const HelpSection = () => {
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
-				<Heading.h2 bold>How does this project help?</Heading.h2>
+				<Heading.h2 bold>
+					What is Fold for Covid, and how does it help?
+				</Heading.h2>
 				<Txt.p mt={3}>
-					Donate spare compute capacity to support COVID-19 research-- all from
-					a few simple steps. This effort contributes to the{' '}
+					The Fold for Covid project aims to make it easy to donate spare
+					compute capacity to support COVID-19 research with a few simple steps.
+					This effort contributes to the{' '}
 					<ExternalLink
 						label="Rosetta@Home"
 						href="https://boinc.bakerlab.org"
@@ -42,10 +45,10 @@ const HelpSection = () => {
 					healthy cells.
 				</Txt.p>
 				<Txt.p mt={3}>
-					Do you have a spare computer or single board computer at home? Help
+					Do you have a spare computer or single board computer at home? Join
 					the fight!
 				</Txt.p>
-				<Button outline mb={2} mt={3} href="/how-does-it-work">
+				<Button outline mb={2} mt={3} href="/how-does-it-help">
 					Read More
 				</Button>
 			</Box>

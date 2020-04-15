@@ -20,7 +20,11 @@ const Forum = () => {
 						Running the project already? Have questions? Want to hang out?
 					</Txt>
 				</Box>
-				<Button primary target="_blank" href="https://forums.balena.io">
+				<Button
+					primary
+					target="_blank"
+					href="https://forums.balena.io/c/fold-for-covid/"
+				>
 					See forums
 				</Button>
 			</Flex>

@@ -26,12 +26,17 @@ const faqs = [
 	{
 		label: 'What is my device actually doing?',
 		panel:
-			'Your device is calculating complex simulations of proteins, looking for possible binding proteins that attach to the “spike” on a Covid-19 molecule.',
+			'Your device is calculating complex simulations of proteins, looking for possible binding proteins that attach to the “spike” on a Covid-19 molecule. It downloads work packages from Rosetta, performs the simulations and uploads the results.',
 	},
 	{
 		label: 'How does this help?',
-		panel:
-			'Scientists and researchers are hoping that if they can “cover up” the spikes, the virus will be less capable of entering healthy cells.',
+		panel: (
+			<>
+				Scientists and researchers are hoping that if they can “cover up” the
+				spikes, the virus will be less capable of entering healthy cells.{' '}
+				<ExternalLink label="Read more" href="/how-does-it-help" />
+			</>
+		),
 	},
 	{
 		label: 'How many devices can I add?',
@@ -45,9 +50,18 @@ const faqs = [
 				browser on another computer on the same network. Enter the address:{' '}
 				<ExternalLink
 					href="http://foldforcovid.local"
-					label="foldforcovid.local"
+					label="http://foldforcovid.local"
 				/>
-				, and you will see the jobs your device(s) are currently running.
+				, and you will see the jobs your device(s) are currently running. If you
+				have more than one device, the device names will increment like so:
+				<ExternalLink
+					href="http://foldforcovid2.local"
+					label="http://foldforcovid2.local"
+				/>
+				<ExternalLink
+					href="http://foldforcovid3.local"
+					label="http://foldforcovid3.local"
+				/>
 			</>
 		),
 	},
@@ -61,6 +75,19 @@ const faqs = [
 				<ExternalLink
 					href="https://boinc.bakerlab.org/rosetta/server_status.php"
 					label="boinc.bakerlab.org/rosetta/server_status.php"
+				/>
+			</>
+		),
+	},
+
+	{
+		label: 'Help, something’s not working!',
+		panel: (
+			<>
+				Let us know in{' '}
+				<ExternalLink
+					href="https://forums.balena.io/c/fold-for-covid/"
+					label="our Forums!"
 				/>
 			</>
 		),
@@ -85,7 +112,12 @@ const FAQs = () => {
 				<Txt fontSize={3} bold>
 					Need more Help?
 				</Txt>
-				<Button mx={3} target="_blank" primary href="https://forums.balena.io">
+				<Button
+					mx={3}
+					target="_blank"
+					primary
+					href="https://forums.balena.io/c/fold-for-covid/"
+				>
 					See forums
 				</Button>
 			</Flex>
