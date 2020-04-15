@@ -66,8 +66,8 @@ const Header = () => {
 							<Txt align="center" py={[3, 3, 0, 0]}>
 								<Link
 									dark={!renderDarkMode}
-									href="/about-the-project"
-									label="About the project"
+									href="/how-does-it-help"
+									label="How does it help?"
 								/>
 								<Link
 									dark={!renderDarkMode}

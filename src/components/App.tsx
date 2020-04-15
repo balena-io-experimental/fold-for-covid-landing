@@ -15,7 +15,7 @@ import { HowDoesItWork } from './HowDoesItWork';
 import { SubHeader } from './SubHeader';
 import { Credits } from './Credits';
 import BalenaSdk from 'balena-sdk';
-import { AboutTheProject } from './AboutTheProject';
+import { AboutTheProject } from './HowDoesItHelp';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -137,7 +137,7 @@ const App = () => {
 							<FAQs />
 						</Box>
 					</Route>
-					<Route exact path="/about-the-project">
+					<Route exact path="/how-does-it-help">
 						<AboutTheProject />
 					</Route>
 					<Route exact path="/how-does-it-work">
