@@ -55,10 +55,9 @@ const faqs = [
 		label: 'It seems like my device is not getting any work units to process?',
 		panel: (
 			<>
-				It seems like my device is not getting any work units to process? On
-				occasion, the Baker Lab does run out of work units to send users. They
-				are quick to make more, so sit tight, and give it a few hours until the
-				queue is refilled with jobs. You can view the queue status here:{' '}
+				On occasion, the Baker Lab does run out of work units to send users.
+				They are quick to make more, so sit tight, and give it a few hours until
+				the queue is refilled with jobs. You can view the queue status here:{' '}
 				<ExternalLink
 					href="https://boinc.bakerlab.org/rosetta/server_status.php"
 					label="boinc.bakerlab.org/rosetta/server_status.php"
