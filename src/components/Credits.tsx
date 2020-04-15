@@ -1,11 +1,12 @@
 import React from 'react';
-import { Heading, Flex, Box, Img } from 'rendition';
+import { Flex, Box, Img } from 'rendition';
 import rosettaAtHomeLogo from '../img/rosetta-at-home-logo.png';
 import armLogo from '../img/arm-logo.png';
 import ninetySixBoardsLogo from '../img/96boards-logo.png';
 import linaroLogo from '../img/linaro-logo.png';
 import neocortixLogo from '../img/neocortix-logo.png';
 import packetLogo from '../img/packet-logo.png';
+import balenaLogo from '../img/balena-dark.svg';
 
 const Logo = ({
 	src,
@@ -17,7 +18,7 @@ const Logo = ({
 	size?: number;
 }) => {
 	return (
-		<Img src={src} style={{ maxHeight: size ?? 64, margin: 16 }} alt={alt} />
+		<Img src={src} style={{ maxHeight: size ?? 34, margin: 16 }} alt={alt} />
 	);
 };
 
@@ -32,15 +33,13 @@ export const Credits = () => {
 				flexDirection="row"
 				flexWrap="wrap"
 			>
-				<Heading.h3 bold mr={[0, 3]}>
-					Special thanks
-				</Heading.h3>
-				<Logo src={rosettaAtHomeLogo} size={54} alt="Rosetta at home logo" />
+				<Logo src={rosettaAtHomeLogo} alt="Rosetta at home logo" />
 				<Logo src={armLogo} alt="Arm logo" />
 				<Logo src={packetLogo} alt="Packet logo" />
-				<Logo src={neocortixLogo} alt="Neocortix logo" size={68} />
+				<Logo src={neocortixLogo} alt="Neocortix logo" />
 				<Logo src={linaroLogo} alt="Linaro logo" />
 				<Logo src={ninetySixBoardsLogo} alt="96 boards logo" />
+				<Logo src={balenaLogo} alt="Balena logo" />
 			</Flex>
 		</Box>
 	);
