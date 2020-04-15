@@ -14,6 +14,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { HowDoesThisHelp } from './HowDoesThisHelp';
 import { SubHeader } from './SubHeader';
 import { Credits } from './Credits';
+import BalenaSdk from 'balena-sdk';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -23,7 +24,59 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const API_ENDPOINT = 'https://api.balena-cloud.com';
+
+const sdk = BalenaSdk({
+	apiUrl: API_ENDPOINT,
+	isBrowser: true,
+});
+
 const App = () => {
+	const [devices, setDevices] = React.useState<undefined | any[]>();
+	const [applications, setApplications] = React.useState<
+		BalenaSdk.Application[] | undefined
+	>();
+
+	React.useEffect(() => {
+		sdk.pine
+			.get<BalenaSdk.Application>({
+				resource: 'application',
+				options: {
+					$select: ['id', 'device_type', 'app_name'],
+					$filter: {
+						is_public: true,
+						slug: {
+							$in: [
+								'balenalabs/rosetta-at-home-amd64',
+								'balenalabs/rosetta-at-home-arm',
+							],
+						},
+					},
+				},
+			})
+			.then(setApplications)
+			.catch(console.error);
+	}, []);
+
+	React.useEffect(() => {
+		if (!applications) {
+			return;
+		}
+
+		sdk.pine
+			.get({
+				resource: 'public_device',
+				options: {
+					// $select: ["latitude", "longitude"],
+					$filter: {
+						belongs_to__application: { $in: applications.map((app) => app.id) },
+					},
+				},
+			})
+			.then(setDevices)
+			.catch(console.error);
+	}, [applications]);
+
 	return (
 		<Router>
 			<Provider
@@ -68,9 +121,9 @@ const App = () => {
 					<Route path="/" exact>
 						<Box color="text.main">
 							<SubHeader />
-							<DeviceMap />
+							<DeviceMap devices={devices} />
 							<HelpSection />
-							<GetStarted />
+							<GetStarted applications={applications} sdk={sdk} />
 							<Forum />
 							<Credits />
 							<Social />
