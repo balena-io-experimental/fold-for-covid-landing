@@ -147,7 +147,7 @@ const GetStarted = ({
 	) : null;
 
 	return (
-		<Box id="get-started" bg="primary.light">
+		<Box id="get-started" pb={4} bg="primary.light">
 			<Flex mt={2} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
 				<Heading.h2 pt={4} bold>
 					Get Started

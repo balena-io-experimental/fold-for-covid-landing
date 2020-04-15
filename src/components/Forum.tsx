@@ -13,7 +13,7 @@ const Forum = () => {
 				justifyContent="center"
 			>
 				<Box mr={[0, 0, 3, 3]} mb={[3, 3, 0, 0]}>
-					<Heading.h2 bold fontSize={5}>
+					<Heading.h2 bold fontSize="34px">
 						Come, join us in the forums.
 					</Heading.h2>
 					<Txt fontSize={1}>
