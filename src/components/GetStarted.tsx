@@ -473,6 +473,11 @@ const GetStarted = ({
 										alt="Rosetta tasks on your device"
 									/>
 								</Flex>
+								<Txt my={3}>
+									If you have a display connected to your{' '}
+									{selectedDeviceType?.name}, the statistics and current
+									information will be shown there too.
+								</Txt>
 							</Step>
 							<Step index={5}>
 								<Txt fontSize={2} bold>
