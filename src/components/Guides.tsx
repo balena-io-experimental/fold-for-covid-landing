@@ -76,6 +76,75 @@ const renderLaunchEtcher = (deviceName?: string) => (
 	</>
 );
 
+const renderLaunchEtcherUsb = (deviceName?: string) => (
+	<>
+		<Txt fontSize={2} bold>
+			Launch balenaEtcher and flash your USB flash drive
+		</Txt>
+		<Txt my={3}>
+			Launch balenaEtcher, choose the file you downloaded in Step 1, select your
+			USB flash drive and click “Flash”. Note: this will wipe all data on the
+			drive and prepare it to install the project.
+		</Txt>
+		<Flex
+			alignItems="center"
+			justifyContent="center"
+			maxHeight="300px"
+			maxWidth="400px"
+			pt={2}
+		>
+			<LazyImage src={flashCard} alt="Flash card with Etcher" />
+		</Flex>
+	</>
+);
+
+const renderBootUsb = () => (
+	<>
+		<Txt fontSize={2} bold>
+			Once complete, plug the USB stick into your computer, and power it on
+		</Txt>
+		<Txt my={3}>
+			If your computer does not automatically boot from the USB device, you may
+			need to change its bootup order, or manually choose to boot from USB. Once
+			the install process completes, the device will shut down and power off.
+		</Txt>
+	</>
+);
+
+const renderPowerItOn = () => (
+	<>
+		<Txt fontSize={2} bold>
+			Remove the USB stick and power it back on
+		</Txt>
+		<Txt my={3}>
+			Your computer will automatically join the global fight, and begin
+			crunching data! Read more about how this helps
+		</Txt>
+		<Txt my={3}>
+			To view your device’s current activity, simply visit your device’s new
+			hostname, foldforcovid.local, in a web browser like this:{' '}
+			<ExternalLink
+				label="http://foldforcovid.local"
+				href="http://foldforcovid.local"
+			/>
+		</Txt>
+		<Flex
+			alignItems="center"
+			justifyContent="center"
+			maxHeight="300px"
+			maxWidth="500px"
+			pt={2}
+		>
+			<LazyImage src={tasksImg} alt="Rosetta tasks on your device" />
+		</Flex>
+		<Txt my={3}>
+			Your device’s activity should also show up on your computer’s monitor.
+			Additionally, if you set up a laptop, you can close the lid and it will
+			keep crunching data.
+		</Txt>
+	</>
+);
+
 const renderInsertSDCard = (deviceName?: string) => (
 	<>
 		<Txt fontSize={2} bold>
@@ -138,6 +207,18 @@ const renderSuccess = () => (
 	</>
 );
 
+const renderUsbSuccess = () => (
+	<>
+		<Txt fontSize={2} bold>
+			Add as many devices as you can, and tell everyone you know!
+		</Txt>
+		<Txt my={3}>
+			To add more devices simply use the same USB flash drive you flashed in
+			step one to set up more spare computers with the project.
+		</Txt>
+	</>
+);
+
 const renderViewActivity = (deviceName?: string) => (
 	<>
 		<Txt>
@@ -186,7 +267,7 @@ const guides: any = {
 		steps: [
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
-			renderLaunchEtcher(),
+			renderLaunchEtcher(deviceType?.name),
 			renderInsertSDCard(deviceType?.name),
 			renderSuccess(),
 		],
@@ -203,7 +284,7 @@ const genericGuide: any = {
 		steps: [
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
-			renderLaunchEtcher(),
+			renderLaunchEtcher(deviceType?.name),
 			renderInsertSDCard(deviceType?.name),
 			renderSuccess(),
 		],
@@ -233,9 +314,10 @@ const genericGuide: any = {
 		steps: [
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
-			renderLaunchEtcher(),
-			renderInsertSDCard(deviceType?.name),
-			renderSuccess(),
+			renderLaunchEtcherUsb(),
+			renderBootUsb(),
+			renderPowerItOn(),
+			renderUsbSuccess(),
 		],
 	}),
 };
