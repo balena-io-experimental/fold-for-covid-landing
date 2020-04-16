@@ -378,17 +378,14 @@ const GetStarted = ({
 						<>
 							<Step index={1}>
 								<Txt fontSize={2} bold>
-									Download and Install{' '}
-									<ExternalLink
-										href="https://balena.io/etcher"
-										label="balenaEtcher"
-									/>
+									Download the Fold for Covid project software
 								</Txt>
-								<DownloadEtcher />
-							</Step>
-							<Step index={2}>
-								<Txt fontSize={2} bold>
-									Download the ready-made Operating System below.
+								<Txt my={3}>
+									BalenaOS is the operating system (OS) for your{' '}
+									{selectedDeviceType?.name} and is preconfigured to run Rosetta
+									software. If your device is connecting via WiFi you'll need to
+									input the credentials here. We don't save any details.{' '}
+									<ExternalLink href="/how-does-it-work" label="Read more" />
 								</Txt>
 								<DownloadImage
 									sdk={sdk}
@@ -396,13 +393,29 @@ const GetStarted = ({
 									selectedDeviceType={selectedDeviceType}
 								/>
 							</Step>
-							<Step index={3}>
+							<Step index={2}>
 								<Txt fontSize={2} bold>
-									Launch balenaEtcher
+									Download and install{' '}
+									<ExternalLink
+										href="https://balena.io/etcher"
+										label="balenaEtcher"
+									/>
 								</Txt>
 								<Txt my={3}>
-									Choose the file you just downloaded, select your SD card and
-									click "Flash".
+									balenaEtcher is used to write the OS image you downloaded in
+									Step 1 to your SD card.
+								</Txt>
+								<DownloadEtcher />
+							</Step>
+							<Step index={3}>
+								<Txt fontSize={2} bold>
+									Launch balenaEtcher and flash your SD card
+								</Txt>
+								<Txt my={3}>
+									Launch balenaEtcher, choose the file you downloaded in Step 1,
+									select your SD card and click "Flash". This will wipe all data
+									on the card and prepare it for your {selectedDeviceType?.name}
+									.
 								</Txt>
 								<Flex
 									alignItems="center"
@@ -415,13 +428,12 @@ const GetStarted = ({
 								</Flex>
 							</Step>
 							<Step index={4}>
-								<Txt>
-									Once complete,{' '}
-									<Txt.span bold>
-										place the SD Card in your {selectedDeviceType?.name}, and
-										power it on
-									</Txt.span>
-									.
+								<Txt fontSize={2} bold>
+									Boot up your device and begin folding!
+								</Txt>
+								<Txt my={3}>
+									Once the flashing process is complete, place the SD Card in
+									your device, and power it on.
 								</Txt>
 								<Flex
 									alignItems="center"
@@ -432,27 +444,22 @@ const GetStarted = ({
 								>
 									<LazyImage src={insertCard} alt="Insert card in device" />
 								</Flex>
-							</Step>
-							<Step index={5}>
-								<Txt>
-									<Txt.span>
-										Your {selectedDeviceType?.name} will automatically join the
-										Fleet, and begin crunching data!
-									</Txt.span>
+								<Txt my={3}>
+									Your {selectedDeviceType?.name} will automatically join the
+									global fight, and begin crunching data!{' '}
+									<ExternalLink
+										href="/how-does-it-work"
+										label="Read more about how this helps"
+									/>
 								</Txt>
-							</Step>
-							<Step index={6}>
-								<Txt>
-									<Txt.span>
-										To view your {selectedDeviceType?.name}'s current activity,
-										visit your {selectedDeviceType?.name}’s new hostname,
-										foldforcovid.local, in a web browser like this:{' '}
-									</Txt.span>
+								<Txt my={3}>
+									To view your {selectedDeviceType?.name}'s current activity,
+									visit your {selectedDeviceType?.name}’s new hostname,
+									foldforcovid.local, in a web browser like this:{' '}
 									<ExternalLink
 										href="http://foldforcovid.local"
 										label="foldforcovid.local"
 									/>
-									.
 								</Txt>
 								<Flex
 									alignItems="center"
@@ -466,6 +473,21 @@ const GetStarted = ({
 										alt="Rosetta tasks on your device"
 									/>
 								</Flex>
+								<Txt my={3}>
+									If you have a display connected to your{' '}
+									{selectedDeviceType?.name}, the statistics and current
+									information will be shown there too.
+								</Txt>
+							</Step>
+							<Step index={5}>
+								<Txt fontSize={2} bold>
+									Add as many devices as you can, and tell everyone you know!
+								</Txt>
+								<Txt my={3}>
+									To add more devices simply flash the same OS image you
+									downloaded in Step 1 to more SD cards and boot up more
+									devices.
+								</Txt>
 							</Step>
 						</>
 					)}
