@@ -9,6 +9,7 @@ import { LazyImage } from './LazyImage';
 import styled from 'styled-components';
 import { getDeviceGuide } from './Guides';
 import { useLocation } from 'react-router-dom';
+import { client } from './useTracker';
 
 const Ul = styled.ul`
 	list-style: disc;
@@ -285,6 +286,7 @@ const GetStarted = ({
 									ml={3}
 									target="_blank"
 									href="https://boinc.berkeley.edu/download.php"
+									onClick={() => client.track('[covid] Download Boinc')}
 									primary
 								>
 									Download

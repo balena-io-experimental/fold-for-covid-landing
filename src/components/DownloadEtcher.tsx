@@ -8,6 +8,7 @@ import sortBy from 'lodash-es/sortBy';
 import styled from 'styled-components';
 import Sniffr from 'sniffr';
 import arch from 'arch';
+import { client } from './useTracker';
 
 const MenuItem = styled.div`
 	padding: 4px 16px;
@@ -85,20 +86,20 @@ export const DownloadEtcher = () => {
 
 	useEffect(() => {
 		try {
-			const client = new Sniffr() as any;
+			const userClient = new Sniffr() as any;
 
-			client.sniff(window.navigator.userAgent);
-			client.os.arch = arch() as any;
+			userClient.sniff(window.navigator.userAgent);
+			userClient.os.arch = arch() as any;
 
 			const score = (condition: any, p: number) => (!condition ? p : 0);
 
 			const sortedLinks = sortBy(releases, (l) => {
 				let linkScore = score(
-					l.os.toLowerCase() === client.os.name.toLowerCase(),
+					l.os.toLowerCase() === userClient.os.name.toLowerCase(),
 					2,
 				);
 				if (linkScore === 0) {
-					const archRegex = new RegExp(client.os.arch, 'i');
+					const archRegex = new RegExp(userClient.os.arch, 'i');
 					const isSameArch = archRegex.test(l.arch);
 					linkScore = linkScore + score(isSameArch, 1);
 				}
@@ -138,6 +139,8 @@ export const DownloadEtcher = () => {
 		if (!initialized || !link) {
 			return;
 		}
+
+		client.track('[covid] Download Etcher');
 
 		window.location.replace(link?.href);
 	};
