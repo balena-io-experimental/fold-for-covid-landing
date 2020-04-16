@@ -63,7 +63,7 @@ export const AboutTheProject = () => (
 						style={{ maxHeight: 250 }}
 						alt="covid19 protein"
 					/>
-					<Txt fontSize={0} mt={2} maxWidth={400}>
+					<Txt fontSize={0} mt={2} maxWidth={400} align="center">
 						Protein simulations are created to see whether they will bind to the
 						“spike” protein found on the COVID-19. Here is an example of one
 						such successful protein identified thus far.
