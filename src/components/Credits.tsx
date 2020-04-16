@@ -3,9 +3,9 @@ import { Flex, Box, Img, Link } from 'rendition';
 import rosettaAtHomeLogo from '../img/rosetta-home-logo.png';
 import rosettaAtHome2xLogo from '../img/rosetta-home-logo@2x.png';
 import rosettaAtHome3xLogo from '../img/rosetta-home-logo@3x.png';
-import armLogo from '../img/arm-logo.png';
-import arm2xLogo from '../img/arm-logo@2x.png';
-import arm3xLogo from '../img/arm-logo@3x.png';
+// import armLogo from '../img/arm-logo.png';
+// import arm2xLogo from '../img/arm-logo@2x.png';
+// import arm3xLogo from '../img/arm-logo@3x.png';
 import ninetySixBoardsLogo from '../img/96boards-logo.png';
 import ninetySixBoards2xLogo from '../img/96boards-logo@2x.png';
 import ninetySixBoards3xLogo from '../img/96boards-logo@3x.png';
@@ -77,13 +77,13 @@ export const Credits = () => {
 						alt="Rosetta at home logo"
 					/>
 				</Link>
-				<Link href="https://www.arm.com/" rel="noopener noreferrer" blank>
+				{/* <Link href="https://www.arm.com/" rel="noopener noreferrer" blank>
 					<Logo
 						src={armLogo}
 						srcSet={`${armLogo}, ${arm2xLogo} 2x, ${arm3xLogo} 3x`}
 						alt="Arm logo"
 					/>
-				</Link>
+				</Link> */}
 				<Link href="https://www.packet.com/" rel="noopener noreferrer" blank>
 					<Logo
 						src={packetLogo}
