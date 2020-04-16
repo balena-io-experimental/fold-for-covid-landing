@@ -58,6 +58,7 @@ const faqs = [
 					href="http://foldforcovid2.local"
 					label="http://foldforcovid2.local"
 				/>
+				,{' '}
 				<ExternalLink
 					href="http://foldforcovid3.local"
 					label="http://foldforcovid3.local"

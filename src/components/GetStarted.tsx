@@ -259,7 +259,7 @@ const GetStarted = ({
 							Launch balenaEtcher
 						</Txt>
 						<Txt my={3}>
-							choose the file you just downloaded, select your SD card and click
+							Choose the file you just downloaded, select your SD card and click
 							"Flash".
 						</Txt>
 						<Flex
