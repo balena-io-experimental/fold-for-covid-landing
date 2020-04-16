@@ -10,7 +10,7 @@ const Social = () => {
 		<Box id="social" py={[5, 5, 6]} bg="#333" width="100%">
 			<Flex
 				mx="auto"
-				maxWidth="800px"
+				maxWidth="960px"
 				flexDirection={'column'}
 				alignItems="center"
 				px={3}
@@ -21,9 +21,9 @@ const Social = () => {
 					fontSize={[6, 6, 6, 58]}
 					style={{ lineHeight: 1.1 }}
 					color="#fff"
+					bold
 				>
-					Tell everyone you know about this project so they too can help fight
-					the pandemic!
+					Add as many devices as you can, and tell everyone you know
 				</Heading.h2>
 				<Flex
 					alignItems="center"
