@@ -53,6 +53,7 @@ const SocialLink = (props: SocialLinkProps) => (
 const Footer = () => {
 	return (
 		<Flex
+			mt="auto"
 			height={['auto']}
 			width="100%"
 			flexDirection="column"

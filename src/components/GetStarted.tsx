@@ -1,5 +1,15 @@
 import React from 'react';
-import { Flex, Heading, Box, Tabs, Tab, Txt, Select, Button } from 'rendition';
+import {
+	Flex,
+	Heading,
+	Box,
+	Tabs,
+	Tab,
+	Txt,
+	Select,
+	Button,
+	Alert,
+} from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
@@ -231,11 +241,12 @@ const GetStarted = ({
 							</Txt.p>
 
 							<Txt.p mt={3}>
-								<Txt.span bold>WARNING:</Txt.span> This project is intended to
-								be used on a spare, unused computer. It will overwrite your
-								existing hard drive contents, causing loss of ALL data on the
-								computer. Only run this on a device that you don’t plan on
-								using.
+								<Alert emphasized danger>
+									This project is intended to be used on a spare, unused
+									computer. It will overwrite your existing hard drive contents,
+									causing loss of ALL data on the computer. Only run this on a
+									device that you don’t plan on using.
+								</Alert>
 							</Txt.p>
 						</Tab>
 						<Tab

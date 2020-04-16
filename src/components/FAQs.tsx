@@ -84,13 +84,13 @@ const faqs = [
 				, and you will see the jobs your device(s) are currently running. If you
 				have more than one device, the device names will increment like so:
 				<ExternalLink
-					href="http://foldforcovid2.local"
-					label="http://foldforcovid2.local"
+					href="http://foldforcovid-2.local"
+					label="http://foldforcovid-2.local"
 				/>
 				,{' '}
 				<ExternalLink
-					href="http://foldforcovid3.local"
-					label="http://foldforcovid3.local"
+					href="http://foldforcovid-3.local"
+					label="http://foldforcovid-3.local"
 				/>
 			</>
 		),

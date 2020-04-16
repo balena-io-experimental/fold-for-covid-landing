@@ -81,6 +81,7 @@ const App = () => {
 	return (
 		<Router>
 			<Provider
+				style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
 				theme={
 					{
 						colors: {
