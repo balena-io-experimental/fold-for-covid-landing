@@ -1,34 +1,8 @@
 import * as React from 'react';
-import { Flex, Box, Txt, Link as RLink, Button } from 'rendition';
+import { Flex, Box, Txt, Button } from 'rendition';
 import ProjectLogo from './ProjectLogo';
-import { Link as InternalLink, useRouteMatch } from 'react-router-dom';
-
-interface LinkProps {
-	href: string;
-	label: string;
-	external?: boolean;
-	dark?: boolean;
-}
-
-const Link = (props: LinkProps) => {
-	let externalProps = {};
-	if (props.external) {
-		externalProps = { blank: true, rel: 'noreferrer noopener' };
-	}
-	return (
-		<RLink
-			color={props.dark ? 'text.main' : '#fff'}
-			fontSize={0}
-			href={props.href}
-			pr={3}
-			{...externalProps}
-		>
-			<Txt.span pl={1} bold>
-				{props.label}
-			</Txt.span>
-		</RLink>
-	);
-};
+import { useRouteMatch } from 'react-router-dom';
+import { Link } from './Link';
 
 const Header = () => {
 	const match = useRouteMatch('/');
@@ -47,7 +21,7 @@ const Header = () => {
 					justifyContent="space-between"
 				>
 					<Flex flex={1}>
-						<InternalLink to="/">
+						<Link href="/">
 							<Flex
 								alignItems="center"
 								justifyContent="center"
@@ -55,7 +29,7 @@ const Header = () => {
 							>
 								<ProjectLogo dark={!renderDarkMode} />
 							</Flex>
-						</InternalLink>
+						</Link>
 					</Flex>
 					<Flex
 						alignItems="center"
@@ -64,28 +38,25 @@ const Header = () => {
 					>
 						<Box>
 							<Txt align="center" py={[3, 3, 0, 0]}>
-								<Link
-									dark={!renderDarkMode}
-									href="/how-does-it-help"
-									label="How does it help?"
-								/>
-								<Link
-									dark={!renderDarkMode}
-									href="/how-does-it-work"
-									label="How does it work?"
-								/>
-								<Link
-									dark={!renderDarkMode}
-									href="/#community"
-									label="Community"
-								/>
-								<Link dark={!renderDarkMode} href="/#faqs" label="FAQs" />
+								<Link dark={!renderDarkMode} href="/how-does-it-help">
+									How does it help?
+								</Link>
+								<Link dark={!renderDarkMode} href="/how-does-it-work">
+									How does it work?
+								</Link>
+								<Link dark={!renderDarkMode} href="/#community">
+									Community
+								</Link>
+								<Link dark={!renderDarkMode} href="/#faqs">
+									FAQs
+								</Link>
 								<Link
 									dark={!renderDarkMode}
 									href="https://github.com/balenalabs/rosetta-at-home"
 									external
-									label="Github"
-								/>
+								>
+									Github
+								</Link>
 							</Txt>
 						</Box>
 						<Button
