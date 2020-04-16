@@ -129,7 +129,8 @@ const FAQs = () => {
 		<Flex
 			id="faqs"
 			mt={5}
-			maxWidth="960px"
+			mx="auto"
+			maxWidth="1280px"
 			flexDirection={'column'}
 			px={[0, 5]}
 		>
