@@ -52,9 +52,11 @@ const getCompatibleDeviceTypes = (
 		throw new Error('Failed to find the device type');
 	}
 
-	return deviceTypes.filter((deviceType) =>
-		sdk.models.os.isArchitectureCompatibleWith(deviceType.arch, targetArch),
-	);
+	return deviceTypes
+		.filter((deviceType) =>
+			sdk.models.os.isArchitectureCompatibleWith(deviceType.arch, targetArch),
+		)
+		.filter((deviceType) => deviceType.yocto.deployArtifact !== 'empty');
 };
 
 interface StepProps {
