@@ -301,6 +301,7 @@ const genericGuide: any = {
 					these steps to download our ready-made operating system, flash it to a
 					USB stick, and begin crunching data to help scientists!
 				</Txt.p>
+
 				<Txt.p mt={3}>
 					<Alert emphasized danger>
 						This project is intended to be used on a spare, unused computer. It

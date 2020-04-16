@@ -164,9 +164,9 @@ const GetStarted = ({
 
 	const deviceTypeSelector = compatibleDeviceTypes ? (
 		<Select<BalenaSdk.DeviceType>
-			mt={3}
+			mt={4}
 			mb={3}
-			mr={3}
+			mx={'auto'}
 			maxWidth={300}
 			options={compatibleDeviceTypes}
 			valueKey="slug"
@@ -187,12 +187,20 @@ const GetStarted = ({
 
 	return (
 		<Box id="get-started" pb={4} bg="primary.light">
-			<Flex mt={2} mx="auto" maxWidth="1280px" flexDirection={'column'} p={3}>
-				<Heading.h2 pt={4} bold>
+			<Flex
+				mt={2}
+				mx="auto"
+				maxWidth="1280px"
+				alignItems="center"
+				justifyContent="center"
+				flexDirection={'column'}
+				p={3}
+			>
+				<Heading.h2 pt={4} fontSize={[5, 6, 6, 7]} bold>
 					Get Started
 				</Heading.h2>
 
-				<Box mt={3} maxWidth="100%" width="600px">
+				<Box mt={4} maxWidth="100%" width="600px">
 					<Tabs
 						activeIndex={activeIndex}
 						onActive={(newIndex) => {
@@ -209,7 +217,7 @@ const GetStarted = ({
 						>
 							{deviceTypeSelector}
 							{intro}
-							<Heading.h3 bold my={3}>
+							<Heading.h3 bold mb={3} mt={4}>
 								Let's begin
 							</Heading.h3>
 
@@ -226,7 +234,7 @@ const GetStarted = ({
 						>
 							{deviceTypeSelector}
 							{intro}
-							<Heading.h3 bold my={3}>
+							<Heading.h3 bold mb={3} mt={4}>
 								Let's begin
 							</Heading.h3>
 							{steps.map((step: any, index: number) => (
