@@ -7,12 +7,12 @@ import { ExternalLink } from './ExternalLink';
 export const AboutTheProject = () => (
 	<>
 		<Box maxWidth="1280px" my={3} width="100%" mx="auto" px={3} py={2}>
+			<Heading.h1 bold py={3}>
+				How does it help?
+			</Heading.h1>
+
 			<Flex flexDirection={['column', 'column', 'row']}>
 				<Box flex={1}>
-					<Heading.h1 bold py={3}>
-						How does it help?
-					</Heading.h1>
-
 					<Txt.p mt={3}>
 						Contributing the computing capacity of spare devices helps power{' '}
 						<ExternalLink

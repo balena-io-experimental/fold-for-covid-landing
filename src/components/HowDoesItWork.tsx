@@ -6,7 +6,7 @@ import howItWorksIllustration from '../img/how-it-works.svg';
 
 export const HowDoesItWork = () => (
 	<>
-		<Box maxWidth="1280px" my={4} width="100%" mx="auto" px={3} py={2}>
+		<Box maxWidth="1280px" my={3} width="100%" mx="auto" px={3} py={2}>
 			<Heading.h1 bold py={3}>
 				How does it work?
 			</Heading.h1>
@@ -26,7 +26,7 @@ export const HowDoesItWork = () => (
 						efforts to boost the computing power available to them by
 						simplifying the process required to get devices online to help
 						conduct{' '}
-						<ExternalLink href="how-does-it-help" label="protein folding" />{' '}
+						<ExternalLink href="/how-does-it-help" label="protein folding" />{' '}
 						simulations.
 					</Txt.p>
 					<Heading.h3 bold py={3}>
