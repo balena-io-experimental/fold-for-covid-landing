@@ -39,6 +39,10 @@ const App = () => {
 	>();
 
 	React.useEffect(() => {
+		document.getElementById('main-spinner')?.remove();
+	}, []);
+
+	React.useEffect(() => {
 		sdk.pine
 			.get<BalenaSdk.Application>({
 				resource: 'application',
