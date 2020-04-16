@@ -92,6 +92,7 @@ const Header = () => {
 							href="/#get-started"
 							label="Get Started"
 							outline={renderDarkMode}
+							style={{ borderColor: '#63ba97' }}
 							light={renderDarkMode}
 							primary={!renderDarkMode}
 						/>
