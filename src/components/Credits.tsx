@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Box, Img } from 'rendition';
+import { Flex, Box, Img, Link } from 'rendition';
 import rosettaAtHomeLogo from '../img/rosetta-home-logo.png';
 import rosettaAtHome2xLogo from '../img/rosetta-home-logo@2x.png';
 import rosettaAtHome3xLogo from '../img/rosetta-home-logo@3x.png';
@@ -57,48 +57,68 @@ export const Credits = () => {
 				flexDirection="row"
 				flexWrap="wrap"
 			>
-				<Logo
-					src={universityOfWashingtonLogo}
-					srcSet={`${universityOfWashingtonLogo}, ${universityOfWashington2xLogo} 2x, ${universityOfWashington3xLogo} 3x`}
-					size={30}
-					alt="University of Washington logo"
-				/>
-				<Logo
-					src={rosettaAtHomeLogo}
-					srcSet={`${rosettaAtHomeLogo}, ${rosettaAtHome2xLogo} 2x, ${rosettaAtHome3xLogo} 3x`}
-					size={30}
-					alt="Rosetta at home logo"
-				/>
-				<Logo
-					src={armLogo}
-					srcSet={`${armLogo}, ${arm2xLogo} 2x, ${arm3xLogo} 3x`}
-					alt="Arm logo"
-				/>
-				<Logo
-					src={packetLogo}
-					srcSet={`${packetLogo}, ${packet2xLogo} 2x, ${packet3xLogo} 3x`}
-					alt="Packet logo"
-				/>
-				<Logo
-					src={neocortixLogo}
-					srcSet={`${neocortixLogo}, ${neocortix2xLogo} 2x, ${neocortix3xLogo} 3x`}
-					alt="Neocortix logo"
-				/>
-				<Logo
-					src={linaroLogo}
-					srcSet={`${linaroLogo}, ${linaro2xLogo} 2x, ${linaro3xLogo} 3x`}
-					alt="Linaro logo"
-				/>
-				<Logo
-					src={ninetySixBoardsLogo}
-					srcSet={`${ninetySixBoardsLogo}, ${ninetySixBoards2xLogo} 2x, ${ninetySixBoards3xLogo} 3x`}
-					alt="96 boards logo"
-				/>
-				<Logo
-					src={balenaLogo}
-					srcSet={`${balenaLogo}, ${balena2xLogo} 2x, ${balena3xLogo} 3x`}
-					alt="Balena logo"
-				/>
+				<Link href="http://www.washington.edu/" rel="noopener noreferrer" blank>
+					<Logo
+						src={universityOfWashingtonLogo}
+						srcSet={`${universityOfWashingtonLogo}, ${universityOfWashington2xLogo} 2x, ${universityOfWashington3xLogo} 3x`}
+						size={30}
+						alt="University of Washington logo"
+					/>
+				</Link>
+				<Link
+					href="https://boinc.bakerlab.org/"
+					rel="noopener noreferrer"
+					blank
+				>
+					<Logo
+						src={rosettaAtHomeLogo}
+						srcSet={`${rosettaAtHomeLogo}, ${rosettaAtHome2xLogo} 2x, ${rosettaAtHome3xLogo} 3x`}
+						size={30}
+						alt="Rosetta at home logo"
+					/>
+				</Link>
+				<Link href="https://www.arm.com/" rel="noopener noreferrer" blank>
+					<Logo
+						src={armLogo}
+						srcSet={`${armLogo}, ${arm2xLogo} 2x, ${arm3xLogo} 3x`}
+						alt="Arm logo"
+					/>
+				</Link>
+				<Link href="https://www.packet.com/" rel="noopener noreferrer" blank>
+					<Logo
+						src={packetLogo}
+						srcSet={`${packetLogo}, ${packet2xLogo} 2x, ${packet3xLogo} 3x`}
+						alt="Packet logo"
+					/>
+				</Link>
+				<Link href="https://www.neocortix.com/" rel="noopener noreferrer" blank>
+					<Logo
+						src={neocortixLogo}
+						srcSet={`${neocortixLogo}, ${neocortix2xLogo} 2x, ${neocortix3xLogo} 3x`}
+						alt="Neocortix logo"
+					/>
+				</Link>
+				<Link href="https://www.linaro.org/" rel="noopener noreferrer" blank>
+					<Logo
+						src={linaroLogo}
+						srcSet={`${linaroLogo}, ${linaro2xLogo} 2x, ${linaro3xLogo} 3x`}
+						alt="Linaro logo"
+					/>
+				</Link>
+				<Link href="https://www.96boards.org/" rel="noopener noreferrer" blank>
+					<Logo
+						src={ninetySixBoardsLogo}
+						srcSet={`${ninetySixBoardsLogo}, ${ninetySixBoards2xLogo} 2x, ${ninetySixBoards3xLogo} 3x`}
+						alt="96 boards logo"
+					/>
+				</Link>
+				<Link href="https://www.balena.io/" rel="noopener noreferrer" blank>
+					<Logo
+						src={balenaLogo}
+						srcSet={`${balenaLogo}, ${balena2xLogo} 2x, ${balena3xLogo} 3x`}
+						alt="Balena logo"
+					/>
+				</Link>
 			</Flex>
 		</Box>
 	);
