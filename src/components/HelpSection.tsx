@@ -5,6 +5,7 @@ import join_2 from '../img/join_2.svg';
 import join_3 from '../img/join_3.svg';
 import { ExternalLink } from './ExternalLink';
 import { InfoStep } from './InfoStep';
+import { Link } from './Link';
 
 const HelpSection = () => {
 	return (
@@ -82,8 +83,16 @@ const HelpSection = () => {
 				</Button>
 				<Txt mt={2} color="text.light">
 					If you don’t have anything to run this project on you can still help
-					by running Rosetta@home on your desktop computer, instructions are
-					here.
+					by running Rosetta@home on your desktop computer,{' '}
+					<Link dark href="/#get-started-main-computer">
+						<Txt.span
+							ml={-1}
+							style={{ textDecoration: 'underline' }}
+							fontSize={1}
+						>
+							instructions are here.
+						</Txt.span>
+					</Link>
 				</Txt>
 			</Box>
 		</Flex>

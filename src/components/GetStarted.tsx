@@ -8,6 +8,7 @@ import boincStep2 from '../img/boinc-step-2.png';
 import { LazyImage } from './LazyImage';
 import styled from 'styled-components';
 import { getDeviceGuide } from './Guides';
+import { useLocation } from 'react-router-dom';
 
 const Ul = styled.ul`
 	list-style: disc;
@@ -83,6 +84,15 @@ const GetStarted = ({
 	applications: BalenaSdk.Application[] | undefined;
 }) => {
 	const [selectedAppArch, setSelectedAppArch] = React.useState('aarch64');
+	const location = useLocation();
+	const initialIndex = location.hash === '#get-started-main-computer' ? 2 : 0;
+	const [activeIndex, setActiveIndex] = React.useState(initialIndex);
+
+	React.useEffect(() => {
+		if (location.hash === '#get-started-main-computer') {
+			setActiveIndex(2);
+		}
+	}, [location.hash]);
 
 	const [selectedApp, setSelectedApp] = React.useState<
 		BalenaSdk.Application | undefined
@@ -184,8 +194,10 @@ const GetStarted = ({
 
 				<Box mt={3} maxWidth="100%" width="600px">
 					<Tabs
-						onActive={(activeIndex) => {
-							setSelectedAppArch(activeIndex === 0 ? 'aarch64' : 'amd64');
+						activeIndex={activeIndex}
+						onActive={(newIndex) => {
+							setSelectedAppArch(newIndex === 0 ? 'aarch64' : 'amd64');
+							setActiveIndex(newIndex);
 						}}
 					>
 						<Tab
@@ -223,7 +235,7 @@ const GetStarted = ({
 						</Tab>
 						<Tab
 							title={
-								<Txt fontSize={2} bold>
+								<Txt id="get-started-main-computer" fontSize={2} bold>
 									Main Computer
 								</Txt>
 							}
