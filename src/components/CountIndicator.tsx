@@ -28,7 +28,7 @@ export const CountIndicator = ({ count }: CountIndicatorProps) => (
 		)}
 		{count == null && <Spinner show={true} width={'100%'} my={3} />}
 		<Txt maxWidth={200} align="center">
-			Computers fighting COVID-19 pandemic around the world
+			Computers fighting COVID-19 around the world
 		</Txt>
 		<Button href="#get-started" width="100%" mt={2} primary>
 			Join the fight!
