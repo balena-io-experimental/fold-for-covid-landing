@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Box, Heading } from 'rendition';
-import { useTracker } from './useTracker';
+import { useTrackPageview } from './useTracker';
 
 export const SubHeader = () => {
-	useTracker();
+	useTrackPageview();
 
 	return (
 		<Box width="100%" bg="#333333">

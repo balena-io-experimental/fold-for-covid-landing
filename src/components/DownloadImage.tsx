@@ -3,6 +3,7 @@ import { ImageForm } from '@bit/sradevski.balena-image-form.image-form';
 import { Box } from 'rendition';
 import * as BalenaSdk from 'balena-sdk';
 import styled from 'styled-components';
+import { client } from './useTracker';
 
 const DOWNLOAD_IMAGE_ENDPOINT = `https://api.balena-cloud.com/download`;
 
@@ -47,7 +48,11 @@ export const DownloadImage = ({
 						rawVersion={'latest'}
 						deviceType={deviceType}
 						getDownloadSize={() => Promise.resolve('')}
-						onDownload={() => null}
+						onDownload={() =>
+							client.track('[covid] Download Image', {
+								deviceType: (deviceType as BalenaSdk.DeviceType)?.slug,
+							})
+						}
 						setIsDownloadingConfig={() => null}
 						// This will result in the .local domain being `foldforcovid.local`
 						configurationComponent={
