@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading, Box, Tabs, Tab, Txt, Select } from 'rendition';
+import { Flex, Heading, Box, Tabs, Tab, Txt, Select, Button } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { Indicator } from './Indicator';
 import { ExternalLink } from './ExternalLink';
@@ -7,9 +7,16 @@ import BalenaSdk from 'balena-sdk';
 import insertCard from '../img/insert-sd.gif';
 import flashCard from '../img/etcher.gif';
 import tasksImg from '../img/tasks.png';
+import boincStep1 from '../img/boinc-step-1.png';
+import boincStep2 from '../img/boinc-step-2.png';
 import { DownloadEtcher } from './DownloadEtcher';
 import { LazyImage } from './LazyImage';
+import styled from 'styled-components';
 
+const Ul = styled.ul`
+	list-style: disc;
+	margin-left: 20px;
+`;
 const deviceTypeWeights: { [slug: string]: number } = {
 	'raspberrypi4-64': 100,
 	'raspberrypi3-64': 90,
@@ -79,6 +86,7 @@ const GetStarted = ({
 	applications: BalenaSdk.Application[] | undefined;
 }) => {
 	const [selectedAppArch, setSelectedAppArch] = React.useState('aarch64');
+	const [isMainComputer, setIsMainComputer] = React.useState(false);
 
 	const [selectedApp, setSelectedApp] = React.useState<
 		BalenaSdk.Application | undefined
@@ -173,9 +181,10 @@ const GetStarted = ({
 
 				<Box mt={3} maxWidth="100%" width="600px">
 					<Tabs
-						onActive={(activeIndex) =>
-							setSelectedAppArch(activeIndex === 0 ? 'aarch64' : 'amd64')
-						}
+						onActive={(activeIndex) => {
+							setSelectedAppArch(activeIndex === 0 ? 'aarch64' : 'amd64');
+							setIsMainComputer(activeIndex === 2);
+						}}
 					>
 						<Tab
 							title={
@@ -229,99 +238,237 @@ const GetStarted = ({
 								using.
 							</Txt.p>
 						</Tab>
+						<Tab
+							title={
+								<Txt fontSize={2} bold>
+									Main Computer
+								</Txt>
+							}
+						>
+							<Txt.p mt={3}>
+								If you don’t have a spare device, you can still get involved by
+								donating your main computer’s unused computing power.
+							</Txt.p>
+
+							<Txt.p mt={3}>
+								Getting started on your main computer is simple! Follow these
+								steps to download and install BOINC, add the Rosetta@home
+								project and join team balena! (If you’re an existing BOINC user
+								you can skip straight to step 3)
+							</Txt.p>
+							<Txt.p mt={3}>
+								<Txt.span bold>Note</Txt.span> - Before you start, we recommend
+								ensuring your computer is compatible by checking the{' '}
+								<ExternalLink
+									label="Rosetta@home system requirements"
+									href="https://boinc.berkeley.edu/wiki/List_of_projects_by_system_requirements"
+								/>
+								, you may also want to check out their{' '}
+								<ExternalLink
+									label="rules and policies"
+									href="http://boinc.bakerlab.org/rosetta/info.php"
+								/>
+								.
+							</Txt.p>
+						</Tab>
 					</Tabs>
 
 					<Heading.h3 bold my={3}>
 						Let's begin
 					</Heading.h3>
-					<Step index={1}>
-						<Txt fontSize={2} bold>
-							Download and Install{' '}
-							<ExternalLink
-								href="https://balena.io/etcher"
-								label="balenaEtcher"
-							/>
-						</Txt>
-						<DownloadEtcher />
-					</Step>
-					<Step index={2}>
-						<Txt fontSize={2} bold>
-							Download the ready-made Operating System below.
-						</Txt>
-						<DownloadImage
-							sdk={sdk}
-							selectedApp={selectedApp}
-							selectedDeviceType={selectedDeviceType}
-						/>
-					</Step>
-					<Step index={3}>
-						<Txt fontSize={2} bold>
-							Launch balenaEtcher
-						</Txt>
-						<Txt my={3}>
-							Choose the file you just downloaded, select your SD card and click
-							"Flash".
-						</Txt>
-						<Flex
-							alignItems="center"
-							justifyContent="center"
-							maxHeight="300px"
-							maxWidth="400px"
-							pt={2}
-						>
-							<LazyImage src={flashCard} alt="Flash card with Etcher" />
-						</Flex>
-					</Step>
-					<Step index={4}>
-						<Txt>
-							Once complete,{' '}
-							<Txt.span bold>
-								place the SD Card in your {selectedDeviceType?.name}, and power
-								it on
-							</Txt.span>
-							.
-						</Txt>
-						<Flex
-							alignItems="center"
-							justifyContent="center"
-							maxHeight="300px"
-							maxWidth="400px"
-							pt={2}
-						>
-							<LazyImage src={insertCard} alt="Insert card in device" />
-						</Flex>
-					</Step>
-					<Step index={5}>
-						<Txt>
-							<Txt.span>
-								Your {selectedDeviceType?.name} will automatically join the
-								Fleet, and begin crunching data!
-							</Txt.span>
-						</Txt>
-					</Step>
-					<Step index={6}>
-						<Txt>
-							<Txt.span>
-								To view your {selectedDeviceType?.name}'s current activity,
-								visit your {selectedDeviceType?.name}’s new hostname,
-								foldforcovid.local, in a web browser like this:{' '}
-							</Txt.span>
-							<ExternalLink
-								href="http://foldforcovid.local"
-								label="foldforcovid.local"
-							/>
-							.
-						</Txt>
-						<Flex
-							alignItems="center"
-							justifyContent="center"
-							maxHeight="300px"
-							maxWidth="500px"
-							pt={2}
-						>
-							<LazyImage src={tasksImg} alt="Rosetta tasks on your device" />
-						</Flex>
-					</Step>
+					{isMainComputer ? (
+						<>
+							<Step index={1}>
+								<Txt fontSize={2} mb={2} bold>
+									Download and Install BOINC
+								</Txt>
+								<Button
+									mb={3}
+									ml={3}
+									target="_blank"
+									href="https://boinc.berkeley.edu/download.php"
+									primary
+								>
+									Download
+								</Button>
+								<Ul>
+									<li>
+										<Txt my={1}>
+											Open the BOINC file from your downloads folder,
+											double-click the ‘Installer file’ and follow the
+											instructions.
+										</Txt>
+									</li>
+									<li>
+										<Txt my={1}>
+											Once the installation is complete, your BOINC dashboard
+											should open automatically. If the ‘choose a project’
+											window opens as well (as shown below), close this window
+											by clicking cancel so you see only your main BOINC manager
+											window, and continue to step 2
+										</Txt>
+									</li>
+								</Ul>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									maxHeight="300px"
+									maxWidth="400px"
+									pt={2}
+								>
+									<LazyImage src={boincStep1} alt="Flash card with Etcher" />
+								</Flex>
+							</Step>
+							<Step index={2}>
+								<Txt fontSize={2} mb={2} bold>
+									Add the Rosetta@home Project
+								</Txt>
+								<Ul>
+									<li>
+										<Txt my={1}>In your BOINC manager, click ‘Add project’</Txt>{' '}
+									</li>
+									<li>
+										<Txt my={1}>
+											From the projects window, find and click to highlight the
+											‘Rosetta@home’ project, then click ‘Next’
+										</Txt>
+									</li>
+								</Ul>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									maxHeight="300px"
+									maxWidth="400px"
+									pt={2}
+								>
+									<LazyImage src={boincStep2} alt="Flash card with Etcher" />
+								</Flex>
+								<Ul>
+									<li>
+										<Txt my={1}>
+											You will now be asked to sign in or register for a BOINC
+											account, enter your email address and password, and click
+											‘Next’.
+										</Txt>
+									</li>
+									<li>
+										<Txt my={1}>
+											If you’re an existing BOINC user the project will be added
+											immediately, If you’ve just joined, you will be redirected
+											to the BOINC website to complete registration.
+										</Txt>
+									</li>
+								</Ul>
+							</Step>
+							<Step index={3}>
+								<Txt fontSize={2} bold>
+									Join Team balena!
+								</Txt>
+								<Txt mt={3}>
+									To join our team, visit the{' '}
+									<ExternalLink
+										label="balena profile page"
+										href="https://boinc.bakerlab.org/rosetta/team_display.php?teamid=18832"
+									/>{' '}
+									and click ‘Join this team’
+								</Txt>
+							</Step>
+						</>
+					) : (
+						<>
+							<Step index={1}>
+								<Txt fontSize={2} bold>
+									Download and Install{' '}
+									<ExternalLink
+										href="https://balena.io/etcher"
+										label="balenaEtcher"
+									/>
+								</Txt>
+								<DownloadEtcher />
+							</Step>
+							<Step index={2}>
+								<Txt fontSize={2} bold>
+									Download the ready-made Operating System below.
+								</Txt>
+								<DownloadImage
+									sdk={sdk}
+									selectedApp={selectedApp}
+									selectedDeviceType={selectedDeviceType}
+								/>
+							</Step>
+							<Step index={3}>
+								<Txt fontSize={2} bold>
+									Launch balenaEtcher
+								</Txt>
+								<Txt my={3}>
+									Choose the file you just downloaded, select your SD card and
+									click "Flash".
+								</Txt>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									maxHeight="300px"
+									maxWidth="400px"
+									pt={2}
+								>
+									<LazyImage src={flashCard} alt="Flash card with Etcher" />
+								</Flex>
+							</Step>
+							<Step index={4}>
+								<Txt>
+									Once complete,{' '}
+									<Txt.span bold>
+										place the SD Card in your {selectedDeviceType?.name}, and
+										power it on
+									</Txt.span>
+									.
+								</Txt>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									maxHeight="300px"
+									maxWidth="400px"
+									pt={2}
+								>
+									<LazyImage src={insertCard} alt="Insert card in device" />
+								</Flex>
+							</Step>
+							<Step index={5}>
+								<Txt>
+									<Txt.span>
+										Your {selectedDeviceType?.name} will automatically join the
+										Fleet, and begin crunching data!
+									</Txt.span>
+								</Txt>
+							</Step>
+							<Step index={6}>
+								<Txt>
+									<Txt.span>
+										To view your {selectedDeviceType?.name}'s current activity,
+										visit your {selectedDeviceType?.name}’s new hostname,
+										foldforcovid.local, in a web browser like this:{' '}
+									</Txt.span>
+									<ExternalLink
+										href="http://foldforcovid.local"
+										label="foldforcovid.local"
+									/>
+									.
+								</Txt>
+								<Flex
+									alignItems="center"
+									justifyContent="center"
+									maxHeight="300px"
+									maxWidth="500px"
+									pt={2}
+								>
+									<LazyImage
+										src={tasksImg}
+										alt="Rosetta tasks on your device"
+									/>
+								</Flex>
+							</Step>
+						</>
+					)}
 				</Box>
 			</Flex>
 		</Box>

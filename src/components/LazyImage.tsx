@@ -23,7 +23,7 @@ export const LazyImage = (props: { src: string; alt: string }) => {
 
 		observerRef.current.observe(imageRef.current);
 
-		return () => observerRef.current.disconnect();
+		return () => observerRef.current && observerRef.current.disconnect();
 	}, [props.src]);
 
 	return <img style={{ width: '100%' }} ref={imageRef} alt={props.alt} />;
