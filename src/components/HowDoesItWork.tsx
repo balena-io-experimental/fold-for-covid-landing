@@ -1,16 +1,17 @@
 import React from 'react';
-import { Box, Txt, Heading, Flex } from 'rendition';
+import { Box, Txt, Heading, Flex, Img } from 'rendition';
 import { CTASection } from './CTASection';
 import { ExternalLink } from './ExternalLink';
+import howItWorksIllustration from '../img/how-it-works.svg';
 
 export const HowDoesItWork = () => (
 	<>
 		<Box maxWidth="1280px" my={4} width="100%" mx="auto" px={3} py={2}>
+			<Heading.h1 bold py={3}>
+				How does it work?
+			</Heading.h1>
 			<Flex flexDirection={['column', 'column', 'row']}>
 				<Box flex={1}>
-					<Heading.h1 bold py={3}>
-						How does it work?
-					</Heading.h1>
 					<Txt.p>
 						Fold for Covid was created to help increase awareness of the
 						Rosetta@home project, and to simplify the process of getting
@@ -115,14 +116,9 @@ export const HowDoesItWork = () => (
 						to find out more.
 					</Txt.p>
 				</Box>
-				<Flex
-					mt={3}
-					mx={3}
-					flex={1}
-					flexDirection="column"
-					alignItems="center"
-					justifyContent="flex-end"
-				></Flex>
+				<Flex mx={3} flex={1} flexDirection="column" alignItems="center">
+					<Img src={howItWorksIllustration} alt="How it works illustration" />
+				</Flex>
 			</Flex>
 		</Box>
 		<CTASection />
