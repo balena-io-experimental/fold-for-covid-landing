@@ -250,20 +250,7 @@ const guides: any = {
 		app?: BalenaSdk.Application,
 		deviceType?: BalenaSdk.DeviceType,
 	) => ({
-		intro: (
-			<>
-				{renderGenericInfo(deviceType?.name)}
-				<Txt.p mt={3}>
-					<Txt.span bold>
-						Please Note: This project requires a Raspberry pi 4 with 2GB or 4GB
-						of memory
-					</Txt.span>
-					. These simulations are large and the 1GB version of the Raspberry pi
-					4 doesn’t have enough memory to run the work units Rosetta@Home
-					provides.
-				</Txt.p>
-			</>
-		),
+		intro: renderGenericInfo(deviceType?.name),
 		steps: [
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
