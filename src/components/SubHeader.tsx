@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { Box, Heading } from 'rendition';
+import { useTracker } from './useTracker';
 
 export const SubHeader = () => {
+	useTracker();
+
 	return (
 		<Box width="100%" bg="#333333">
 			<Box mx="auto" pb={3} px={3} width="100%" maxWidth="1280px">

@@ -86,7 +86,7 @@ const Footer = () => {
 						flexDirection={['column', 'row', 'row', 'row']}
 					>
 						{socialLinks.map((link) => (
-							<SocialLink {...link} />
+							<SocialLink key={link.label} {...link} />
 						))}
 					</Flex>
 				</Flex>

@@ -1,0 +1,16 @@
+import * as React from 'react';
+import { createClient, createWebTracker } from 'analytics-client';
+
+const client = createClient({
+	projectName: 'balena-covid',
+	endpoint: 'data.balena-cloud.com',
+	componentName: 'fold-for-covid',
+});
+
+const webTracker = createWebTracker(client);
+
+export const useTracker = () => {
+	React.useEffect(() => {
+		webTracker.trackPageView('covid');
+	}, []);
+};
