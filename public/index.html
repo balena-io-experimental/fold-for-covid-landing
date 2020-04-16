@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/static/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="%PUBLIC_URL%/static/manifest.json" />
-    <meta
-      name="description"
-      content="Fold for Covid lets anyone join the fight against COVID-19 with their spare PCs, laptops, or single-board devices. Follow simple steps to contribute compute power toward finding a treatment."
-    />
-    <!--
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="%PUBLIC_URL%/static/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<link rel="manifest" href="%PUBLIC_URL%/static/manifest.json" />
+		<meta
+			name="description"
+			content="Fold for Covid lets anyone join the fight against COVID-19 with their spare PCs, laptops, or single-board devices. Follow simple steps to contribute compute power toward finding a treatment."
+		/>
+		<meta name="og:image" content="%PUBLIC_URL%/static/foldforcovid.png" />
+		<meta name="twitter:image" content="%PUBLIC_URL%/static/foldforcovid.png" />
+		<!--
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45671959-8"></script>
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-45671959-8"
+		></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-			gtag('config', 'UA-45671959-8');
+			gtag("config", "UA-45671959-8");
 		</script>
 		<!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -29,68 +36,68 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>
-      Fold for Covid - Donate spare compute capacity for COVID-19 research
-    </title>
-    <style>
-      .spinner {
-        width: 40px;
-        height: 40px;
+		<title>
+			Fold for Covid - Donate spare compute capacity for COVID-19 research
+		</title>
+		<style>
+			.spinner {
+				width: 40px;
+				height: 40px;
 
-        position: fixed;
+				position: fixed;
 				left: calc(50% - 20px);
 				top: calc(50% - 20px);
-      }
+			}
 
-      .double-bounce1,
-      .double-bounce2 {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background-color: #63ba97;
-        opacity: 0.6;
-        position: absolute;
-        top: 0;
-        left: 0;
+			.double-bounce1,
+			.double-bounce2 {
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background-color: #63ba97;
+				opacity: 0.6;
+				position: absolute;
+				top: 0;
+				left: 0;
 
-        -webkit-animation: sk-bounce 2s infinite ease-in-out;
-        animation: sk-bounce 2s infinite ease-in-out;
-      }
+				-webkit-animation: sk-bounce 2s infinite ease-in-out;
+				animation: sk-bounce 2s infinite ease-in-out;
+			}
 
-      .double-bounce2 {
-        -webkit-animation-delay: -1s;
-        animation-delay: -1s;
-      }
+			.double-bounce2 {
+				-webkit-animation-delay: -1s;
+				animation-delay: -1s;
+			}
 
-      @-webkit-keyframes sk-bounce {
-        0%,
-        100% {
-          -webkit-transform: scale(0);
-        }
-        50% {
-          -webkit-transform: scale(1);
-        }
-      }
+			@-webkit-keyframes sk-bounce {
+				0%,
+				100% {
+					-webkit-transform: scale(0);
+				}
+				50% {
+					-webkit-transform: scale(1);
+				}
+			}
 
-      @keyframes sk-bounce {
-        0%,
-        100% {
-          transform: scale(0);
-          -webkit-transform: scale(0);
-        }
-        50% {
-          transform: scale(1);
-          -webkit-transform: scale(1);
-        }
-      }
-    </style>
-  </head>
-  <body>
+			@keyframes sk-bounce {
+				0%,
+				100% {
+					transform: scale(0);
+					-webkit-transform: scale(0);
+				}
+				50% {
+					transform: scale(1);
+					-webkit-transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="main-spinner" class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
-    </div>
-    <div id="root"></div>
-  </body>
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+		<div id="root"></div>
+	</body>
 </html>
