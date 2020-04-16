@@ -13,7 +13,11 @@ import BalenaSdk from 'balena-sdk';
 
 const MapWithAMarker = withScriptjs(
 	withGoogleMap((props: any) => (
-		<GoogleMap defaultZoom={2} defaultCenter={{ lat: 15, lng: 0 }}>
+		<GoogleMap
+			defaultZoom={2}
+			defaultCenter={{ lat: 15, lng: 0 }}
+			options={{ streetViewControl: false }}
+		>
 			{props.markers}
 		</GoogleMap>
 	)),

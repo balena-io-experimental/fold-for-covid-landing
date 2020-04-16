@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Flex, Box, Txt, Link } from 'rendition';
+import { Flex, Box, Txt, Link, Img } from 'rendition';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
-import ProjectLogo from './ProjectLogo';
+import balenaLogo from '../img/balena-white.svg';
 
 const socialLinks = [
 	{ href: 'https://github.com/balena-io', icon: faGithub, label: 'Github' },
@@ -65,8 +65,13 @@ const Footer = () => {
 					flexDirection={['column', 'column', 'row', 'row']}
 					justifyContent="space-between"
 				>
-					<Flex flex={[1, 1, 1, 1]}>
-						<ProjectLogo />
+					<Flex flex={1} alignItems="center" width="100%">
+						<Txt.span mr={2} color="white" style={{ whiteSpace: 'nowrap' }}>
+							An open-source project by
+						</Txt.span>
+						<Link blank href="https://balena.io" style={{ lineHeight: 0 }}>
+							<Img src={balenaLogo} style={{ height: 21, display: 'inline' }} />
+						</Link>
 					</Flex>
 					<Flex
 						flex={[1, 1, 2, 1]}
