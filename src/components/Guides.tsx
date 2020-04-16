@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Alert, Txt } from 'rendition';
+import { Flex, Alert, Txt, Button } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { ExternalLink } from './ExternalLink';
 import insertCard from '../img/insert-sd.gif';
@@ -8,6 +8,15 @@ import tasksImg from '../img/tasks.png';
 import { DownloadEtcher } from './DownloadEtcher';
 import { LazyImage } from './LazyImage';
 import BalenaSdk from 'balena-sdk';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import {
+	TWITTER_SHARE_URL,
+	FACEBOOK_SHARE_URL,
+	LINKEDIN_SHARE_URL,
+} from '../constants';
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
 
 const renderGenericInfo = (deviceName?: string) => (
 	<Txt.p>
@@ -195,6 +204,38 @@ const renderInsertSDCard = (deviceName?: string) => (
 	</>
 );
 
+const renderSocialShare = () => (
+	<Txt fontSize={2}>
+		<Button
+			icon={<FontAwesomeIcon style={{ fontSize: 20 }} icon={faTwitter} />}
+			primary
+			target="_blank"
+			href={TWITTER_SHARE_URL}
+			plain
+			emphasized
+			mr={3}
+		/>
+		<Button
+			icon={
+				<FontAwesomeIcon style={{ fontSize: 20 }} icon={faFacebookSquare} />
+			}
+			primary
+			target="_blank"
+			href={FACEBOOK_SHARE_URL}
+			plain
+			mr={3}
+		/>
+		<Button
+			icon={<FontAwesomeIcon style={{ fontSize: 20 }} icon={faLinkedinIn} />}
+			primary
+			target="_blank"
+			href={LINKEDIN_SHARE_URL}
+			plain
+			mr={3}
+		/>
+	</Txt>
+);
+
 const renderSuccess = () => (
 	<>
 		<Txt fontSize={2} bold>
@@ -204,6 +245,7 @@ const renderSuccess = () => (
 			To add more devices simply flash the same OS image you downloaded in Step
 			1 to more SD cards and boot up more devices.
 		</Txt>
+		{renderSocialShare()}
 	</>
 );
 
@@ -216,6 +258,7 @@ const renderUsbSuccess = () => (
 			To add more devices simply use the same USB flash drive you flashed in
 			step one to set up more spare computers with the project.
 		</Txt>
+		{renderSocialShare()}
 	</>
 );
 
