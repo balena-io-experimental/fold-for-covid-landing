@@ -4,6 +4,35 @@ import { ExternalLink } from './ExternalLink';
 
 const faqs = [
 	{
+		label: 'Why are we doing this?',
+		panel: (
+			<>
+				At <ExternalLink label="balena" href="https://balena.io" />, we love
+				open source initiatives that try to make the world a better place. After
+				learning about the{' '}
+				<ExternalLink label="Rosetta" href="https://boinc.bakerlab.org" />{' '}
+				team’s great work, we felt we could help make an impact by allowing
+				folks to easily add their spare computers and devices to the platform.
+				Lending our engineering expertise to streamline the process, including
+				fantastic community support, we created the Fold for Covid project to
+				help promote the project and try to get as many people involved as we
+				can, so that scientists and researchers can start to identify potential
+				treatments for COVID-19 as quickly as possible.
+				<br />
+				So, come join us on the{' '}
+				<ExternalLink
+					label="Forums"
+					href="https://forums.balena.io/c/fold-for-covid/"
+				/>
+				, submit fixes or improvements, or add features to the{' '}
+				<ExternalLink
+					label="Fold for Covid Github repository"
+					href="https://github.com/balenalabs/rosetta-at-home"
+				/>
+			</>
+		),
+	},
+	{
 		label: 'What is Rosetta@Home?',
 		panel: (
 			<>
