@@ -101,6 +101,8 @@ const FAQs = () => {
 			id="faqs"
 			mt={5}
 			maxWidth="960px"
+			mx="auto"
+			alignItems="center"
 			flexDirection={'column'}
 			px={[0, 5]}
 		>
