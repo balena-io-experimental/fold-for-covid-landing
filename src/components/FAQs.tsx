@@ -109,7 +109,20 @@ const faqs = [
 			</>
 		),
 	},
-
+	{
+		label: 'Does my device have enough memory (RAM)?',
+		panel: (
+			<>
+				This project supports devices with 1GB of RAM (or greater). However,
+				sometimes the work queue will run out of jobs that run on devices with
+				lower amounts of memory. This simply means your device will sit idle
+				until jobs that have lower memory requirements are submitted by
+				researchers. It's still great to have your device online and available
+				for work. In this case you'll see a message that says something like
+				"Rosetta needs 1907.35 MB RAM but only 966.82 MB is available for use.".
+			</>
+		),
+	},
 	{
 		label: 'Help, something’s not working!',
 		panel: (
