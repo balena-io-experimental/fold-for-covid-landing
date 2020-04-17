@@ -47,7 +47,7 @@ const App = () => {
 			.get<BalenaSdk.Application>({
 				resource: 'application',
 				options: {
-					$select: ['id', 'device_type', 'app_name'],
+					$select: ['id', 'device_type', 'app_name', 'slug'],
 					$filter: {
 						is_public: true,
 						slug: {
