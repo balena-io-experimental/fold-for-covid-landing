@@ -18,19 +18,6 @@ const ImageFormContainer = styled(Box)`
 	}
 `;
 
-const getReleaseId = (selectedApp: BalenaSdk.Application | undefined) => {
-	if (!selectedApp) {
-		return;
-	}
-
-	switch (selectedApp.slug) {
-		case 'balenalabs/rosetta-at-home-amd64':
-			return 1344802;
-		case 'balenalabs/rosetta-at-home-arm':
-			return 1344795;
-	}
-};
-
 interface DownloadImageProps {
 	selectedApp: BalenaSdk.Application | undefined;
 	selectedDeviceType: BalenaSdk.DeviceType | undefined;
@@ -42,6 +29,8 @@ export const DownloadImage = ({
 	selectedDeviceType,
 	sdk,
 }: DownloadImageProps) => {
+	const [releaseId, setReleaseId] = React.useState<number | undefined>();
+
 	const deviceType = {
 		...selectedDeviceType,
 		options: selectedDeviceType?.options?.filter(
@@ -49,7 +38,15 @@ export const DownloadImage = ({
 		),
 	};
 
-	const releaseId = getReleaseId(selectedApp);
+	React.useEffect(() => {
+		if (!selectedApp?.commit) {
+			return;
+		}
+
+		sdk.models.release
+			.get(selectedApp.commit)
+			.then((res) => setReleaseId(res.id));
+	}, [sdk.models.release, selectedApp]);
 
 	return (
 		<ImageFormContainer mt={3} width="80%">
@@ -73,7 +70,9 @@ export const DownloadImage = ({
 						configurationComponent={
 							<>
 								<input type="hidden" name="hostname" value="foldforcovid" />
-								<input type="hidden" name="releaseId" value={releaseId} />
+								{releaseId && (
+									<input type="hidden" name="releaseId" value={releaseId} />
+								)}
 							</>
 						}
 					/>
