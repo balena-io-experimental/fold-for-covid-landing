@@ -259,8 +259,8 @@ const GetStarted = ({
 							<Txt.p mt={3}>
 								Getting started on your main computer is simple! Follow these
 								steps to download and install BOINC, add the Rosetta@home
-								project and join team balena! (If you’re an existing BOINC user
-								you can skip straight to step 3)
+								project and join team Fold for Covid! (If you’re an existing
+								BOINC user you can skip straight to step 3)
 							</Txt.p>
 							<Txt.p mt={3}>
 								<Txt.span bold>Note</Txt.span> - Before you start, we recommend
@@ -362,12 +362,12 @@ const GetStarted = ({
 							</Step>
 							<Step index={3}>
 								<Txt fontSize={2} bold>
-									Join Team balena!
+									Join team Fold for Covid!
 								</Txt>
 								<Txt mt={3}>
 									To join our team, visit the{' '}
 									<ExternalLink
-										label="balena profile page"
+										label="Fold for Covid profile page"
 										href="https://boinc.bakerlab.org/rosetta/team_display.php?teamid=18832"
 									/>{' '}
 									and click ‘Join this team’
