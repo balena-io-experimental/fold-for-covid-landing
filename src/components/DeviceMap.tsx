@@ -7,7 +7,7 @@ import {
 } from 'react-google-maps';
 import { Box } from 'rendition';
 
-import darkDot from '../img/dot-1.svg';
+import darkPin from '../img/pin.svg';
 import { CountIndicator } from './CountIndicator';
 import BalenaSdk from 'balena-sdk';
 
@@ -48,7 +48,7 @@ const DeviceMap = ({
 						<Marker
 							key={id}
 							icon={{
-								url: darkDot,
+								url: darkPin,
 							}}
 							position={{ lat: parsedLatitude, lng: parsedLongitude }}
 						/>
