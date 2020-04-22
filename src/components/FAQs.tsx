@@ -124,6 +124,29 @@ const faqs = [
 		),
 	},
 	{
+		label: 'Is this project safe to run?',
+		panel: (
+			<>
+				Running Fold for Covid is safe and secure. If using Wi-Fi connectivity,
+				we pass the login credentials directly to your device. The device itself
+				is connected securely to the Rosetta@home project, where jobs are
+				assigned and conducted on the device, and then sent back to
+				Rosetta@home. For more information specific about Rosetta@home, please
+				visit{' '}
+				<ExternalLink
+					label="their site"
+					href="http://boinc.bakerlab.org/rosetta/"
+				/>{' '}
+				and{' '}
+				<ExternalLink
+					label="forums"
+					href="https://boinc.bakerlab.org/rosetta/forum_index.php"
+				/>
+				.
+			</>
+		),
+	},
+	{
 		label: 'Help, something’s not working!',
 		panel: (
 			<>
