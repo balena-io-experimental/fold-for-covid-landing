@@ -25,8 +25,12 @@ const HelpSection = () => {
 				</Heading.h2>
 				<Txt.p mt={3}>
 					The Fold for Covid project aims to make it easy to donate spare
-					compute capacity to support COVID-19 research with a few simple steps.
-					This effort contributes to the{' '}
+					compute capacity to support COVID-19 research with a few simple steps.{' '}
+					<ExternalLink
+						label="This effort"
+						href="https://www.balena.io/blog/balena-enables-more-devices-to-join-rosetta-home-to-research-covid-19/"
+					/>{' '}
+					contributes to the{' '}
 					<ExternalLink
 						label="Rosetta@Home"
 						href="https://boinc.bakerlab.org"
