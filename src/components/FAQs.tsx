@@ -85,6 +85,26 @@ const faqs = [
 		panel: 'There is no limit to the number of devices you can add.',
 	},
 	{
+		label: 'How do I make my old laptop boot from the USB stick?',
+		panel: (
+			<>
+				If your spare laptop doesn't boot the USB stick immediately, fear not.
+				You might have to restart the laptop and enter its BIOS settings. This
+				is typically done by restarting your laptop, waiting for the motherboard
+				loading screen to appear, and pressing either the DELETE key or a
+				function (F1,F2, etc.) key depending on the brand and type of
+				motherboard. For instance, ASUS motherboards require you to press DELETE
+				to access BIOS settings.
+				<br />
+				<br />
+				From there, access your Boot Options and move the USB drive to the first
+				position (meaning it'll look there for an OS to boot first). Please
+				consult your specific motherboard manual for more details about boot
+				order.
+			</>
+		),
+	},
+	{
 		label: 'Can I review my results?',
 		panel: (
 			<>
