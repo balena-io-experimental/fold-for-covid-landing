@@ -2,7 +2,8 @@ import React from 'react';
 import { Flex, Alert, Txt, Button } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { ExternalLink } from './ExternalLink';
-import insertCard from '../img/insert-sd.gif';
+import rpiCard from '../img/insert-sd.gif';
+import jetsonNanoCard from '../img/jetson-nano-card.jpg';
 import flashCard from '../img/etcher.gif';
 import tasksImg from '../img/tasks.png';
 import { DownloadEtcher } from './DownloadEtcher';
@@ -154,7 +155,7 @@ const renderPowerItOn = () => (
 	</>
 );
 
-const renderInsertSDCard = (deviceName?: string) => (
+const renderInsertSDCard = (imgSrc: string, deviceName?: string) => (
 	<>
 		<Txt fontSize={2} bold>
 			Boot up your device and begin folding!
@@ -170,7 +171,7 @@ const renderInsertSDCard = (deviceName?: string) => (
 			maxWidth="400px"
 			pt={2}
 		>
-			<LazyImage src={insertCard} alt="Insert card in device" />
+			<LazyImage src={imgSrc} alt="Insert card in device" />
 		</Flex>
 		<Txt my={3}>
 			Your {deviceName} will automatically join the global fight, and begin
@@ -262,31 +263,6 @@ const renderUsbSuccess = () => (
 	</>
 );
 
-const renderViewActivity = (deviceName?: string) => (
-	<>
-		<Txt>
-			<Txt.span>
-				To view your {deviceName}'s current activity, visit your {deviceName}’s
-				new hostname, foldforcovid.local, in a web browser like this:{' '}
-			</Txt.span>
-			<ExternalLink
-				href="http://foldforcovid.local"
-				label="foldforcovid.local"
-			/>
-			.
-		</Txt>
-		<Flex
-			alignItems="center"
-			justifyContent="center"
-			maxHeight="300px"
-			maxWidth="500px"
-			pt={2}
-		>
-			<LazyImage src={tasksImg} alt="Rosetta tasks on your device" />
-		</Flex>
-	</>
-);
-
 const guides: any = {
 	'raspberrypi4-64': (
 		sdk: BalenaSdk.BalenaSDK,
@@ -298,7 +274,22 @@ const guides: any = {
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
 			renderLaunchEtcher(deviceType?.name),
-			renderInsertSDCard(deviceType?.name),
+			renderInsertSDCard(rpiCard, deviceType?.name),
+			renderSuccess(),
+		],
+	}),
+
+	'jetson-nano': (
+		sdk: BalenaSdk.BalenaSDK,
+		app?: BalenaSdk.Application,
+		deviceType?: BalenaSdk.DeviceType,
+	) => ({
+		intro: renderGenericInfo(deviceType?.name),
+		steps: [
+			renderDownloadOS(sdk, app, deviceType),
+			renderDownloadEtcher(),
+			renderLaunchEtcher(deviceType?.name),
+			renderInsertSDCard(jetsonNanoCard, deviceType?.name),
 			renderSuccess(),
 		],
 	}),
@@ -315,7 +306,7 @@ const genericGuide: any = {
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
 			renderLaunchEtcher(deviceType?.name),
-			renderInsertSDCard(deviceType?.name),
+			renderInsertSDCard(rpiCard, deviceType?.name),
 			renderSuccess(),
 		],
 	}),
