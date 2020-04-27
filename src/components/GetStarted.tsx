@@ -21,6 +21,14 @@ const deviceTypeWeights: { [slug: string]: number } = {
 	'raspberrypi3-64': 90,
 };
 
+const disallowedDeviceTypeSlugs = [
+	'skx2',
+	'etcher-pro',
+	'orbitty-tx2',
+	'spacely-tx2',
+	'nitrogen8mm-dwe',
+];
+
 const getDeviceTypeImportanceWeight = (deviceTypeSlug: string) => {
 	if (deviceTypeWeights[deviceTypeSlug]) {
 		return deviceTypeWeights[deviceTypeSlug];
@@ -57,7 +65,10 @@ const getCompatibleDeviceTypes = (
 		.filter((deviceType) =>
 			sdk.models.os.isArchitectureCompatibleWith(deviceType.arch, targetArch),
 		)
-		.filter((deviceType) => deviceType.yocto.deployArtifact !== 'empty');
+		.filter((deviceType) => deviceType.yocto.deployArtifact !== 'empty')
+		.filter(
+			(deviceType) => !disallowedDeviceTypeSlugs.includes(deviceType.slug),
+		);
 };
 
 interface StepProps {
