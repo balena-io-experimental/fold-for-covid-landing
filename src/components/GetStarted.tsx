@@ -22,11 +22,14 @@ const deviceTypeWeights: { [slug: string]: number } = {
 };
 
 const disallowedDeviceTypeSlugs = [
+	// All of the device types below have less than 1GB ram, which is required for rosetta@home
 	'skx2',
 	'etcher-pro',
 	'orbitty-tx2',
 	'spacely-tx2',
 	'nitrogen8mm-dwe',
+	// This one doesn't have an image released
+	'generic-aarch64',
 ];
 
 const getDeviceTypeImportanceWeight = (deviceTypeSlug: string) => {
