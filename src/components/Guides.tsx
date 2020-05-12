@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Alert, Txt, Button } from 'rendition';
+import { Flex, Alert, Txt, Button, Link } from 'rendition';
 import { DownloadImage } from './DownloadImage';
 import { ExternalLink } from './ExternalLink';
 import rpiCard from '../img/insert-sd.gif';
@@ -311,6 +311,35 @@ const guides: any = {
 		deviceType?: BalenaSdk.DeviceType,
 	) => ({
 		intro: renderGenericInfo(deviceType?.name),
+		steps: [
+			renderDownloadOS(sdk, app, deviceType),
+			renderDownloadEtcher(),
+			renderLaunchEtcher(deviceType?.name),
+			renderInsertSDCard(rpiCard, deviceType?.name),
+			renderSuccess(),
+		],
+	}),
+
+	'raspberrypi3-64': (
+		sdk: BalenaSdk.BalenaSDK,
+		app?: BalenaSdk.Application,
+		deviceType?: BalenaSdk.DeviceType,
+	) => ({
+		intro: (
+			<>
+				{renderGenericInfo(deviceType?.name)}
+
+				<Txt.p mt={3}>
+					<Alert info>
+						Occasionally you may see a message like "Rosetta needs 1907.35 MB
+						RAM but only 966.82 MB is available for use.", this simply means
+						there are no tasks present in the queue at that time - keep your
+						device online and more will be added soon! Read more in{' '}
+						<Link href="#faqs">our FAQ</Link>.
+					</Alert>
+				</Txt.p>
+			</>
+		),
 		steps: [
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
