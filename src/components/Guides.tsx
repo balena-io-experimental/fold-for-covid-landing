@@ -205,6 +205,47 @@ const renderInsertSDCard = (imgSrc: string, deviceName?: string) => (
 	</>
 );
 
+const renderBootSbc = (deviceName?: string) => (
+	<>
+		<Txt fontSize={2} bold>
+			Boot up your device and begin folding!
+		</Txt>
+		<Txt my={3}>
+			Once the flashing process is complete, if applicable, place the SD Card in
+			your device, and power it on.
+		</Txt>
+		<Txt my={3}>
+			Your {deviceName} will automatically join the global fight, and begin
+			crunching data!{' '}
+			<ExternalLink
+				href="/how-does-it-work"
+				label="Read more about how this helps"
+			/>
+		</Txt>
+		<Txt my={3}>
+			To view your {deviceName}'s current activity, visit your {deviceName}’s
+			new hostname, foldforcovid.local, in a web browser like this:{' '}
+			<ExternalLink
+				href="http://foldforcovid.local"
+				label="foldforcovid.local"
+			/>
+		</Txt>
+		<Flex
+			alignItems="center"
+			justifyContent="center"
+			maxHeight="300px"
+			maxWidth="500px"
+			pt={2}
+		>
+			<LazyImage src={tasksImg} alt="Rosetta tasks on your device" />
+		</Flex>
+		<Txt my={3}>
+			If you have a display connected to your {deviceName}, the statistics and
+			current information will be shown there too.
+		</Txt>
+	</>
+);
+
 const renderSocialShare = () => (
 	<Txt fontSize={2}>
 		<Button
@@ -306,7 +347,7 @@ const genericGuide: any = {
 			renderDownloadOS(sdk, app, deviceType),
 			renderDownloadEtcher(),
 			renderLaunchEtcher(deviceType?.name),
-			renderInsertSDCard(rpiCard, deviceType?.name),
+			renderBootSbc(deviceType?.name),
 			renderSuccess(),
 		],
 	}),
