@@ -138,6 +138,11 @@ const renderPowerItOn = () => (
 				href="http://foldforcovid.local"
 			/>
 		</Txt>
+		<Txt my={3}>
+			<Txt bold>Note</Txt> a multicast (mDNS) services like Bonjour or Avahi is
+			required for the local hostname to work. Find out more in{' '}
+			<Link href="#faqs">our FAQ</Link>.
+		</Txt>
 		<Flex
 			alignItems="center"
 			justifyContent="center"
@@ -188,6 +193,11 @@ const renderInsertSDCard = (imgSrc: string, deviceName?: string) => (
 				href="http://foldforcovid.local"
 				label="foldforcovid.local"
 			/>
+		</Txt>
+		<Txt my={3}>
+			<Txt bold>Note</Txt> a multicast (mDNS) services like Bonjour or Avahi is
+			required for the local hostname to work. Find out more in{' '}
+			<Link href="#faqs">our FAQ</Link>.
 		</Txt>
 		<Flex
 			alignItems="center"

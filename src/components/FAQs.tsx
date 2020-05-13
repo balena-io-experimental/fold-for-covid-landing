@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Flex, Heading, Accordion, Txt, Button } from 'rendition';
+import { Flex, Heading, Accordion, Txt, Button, List, Link } from 'rendition';
 import { ExternalLink } from './ExternalLink';
 
 const faqs = [
@@ -105,10 +105,10 @@ const faqs = [
 		),
 	},
 	{
-		label: 'Can I review my results?',
+		label: 'Can I see what the device is doing and review my results?',
 		panel: (
 			<>
-				After your device is flashed and powered up, simply open up a web
+				Yes! After your device is flashed and powered up, simply open up a web
 				browser on another computer on the same network. Enter the address:{' '}
 				<ExternalLink
 					href="http://foldforcovid.local"
@@ -125,6 +125,26 @@ const faqs = [
 					href="http://foldforcovid-3.local"
 					label="http://foldforcovid-3.local"
 				/>
+				<br />
+				<br />
+				The local hostname requires a multicast DNS (mDNS) service like Bonjour
+				or Avahi:
+				<List m={3}>
+					<Txt>
+						On Windows, check if 'Bonjour' is installed (Control Panel >
+						Programs and Features). If not, you can download Bonjour for Windows
+						from{' '}
+						<Link href="https://support.apple.com/kb/DL999">
+							https://support.apple.com/kb/DL999
+						</Link>
+					</Txt>
+					<Txt>
+						Most 'desktop' Linux distributions ship with Avahi. Search for the
+						installation command for your distribution. E.g. for Ubuntu: sudo
+						apt-get install avahi-daemon
+					</Txt>
+					<Txt>macOS comes with Bonjour built-in.</Txt>
+				</List>
 			</>
 		),
 	},
@@ -194,6 +214,12 @@ const faqs = [
 ];
 
 const FAQs = () => {
+	const sortedFaqs = faqs.sort(function (a, b) {
+		const x = a.label;
+		const y = b.label;
+		return x < y ? -1 : x > y ? 1 : 0;
+	});
+
 	return (
 		<Flex
 			id="faqs"
@@ -206,7 +232,7 @@ const FAQs = () => {
 			<Heading.h2 mx={2} fontSize={[5, 5, 6, 6]} px={1} my={3} bold>
 				Frequently asked questions
 			</Heading.h2>
-			<Accordion items={faqs as any}></Accordion>
+			<Accordion items={sortedFaqs as any}></Accordion>
 
 			<Flex my={5} pl={3}>
 				<Txt fontSize={3} bold>
