@@ -1,6 +1,6 @@
 {
   "name": "4r-landing-page",
-  "version": "0.38.3",
+  "version": "0.38.4",
   "scripts": {
     "start": "PORT=8000 react-scripts start",
     "build": "PUBLIC_URL=https://foldforcovid.io GENERATE_SOURCEMAP=false react-scripts build",
