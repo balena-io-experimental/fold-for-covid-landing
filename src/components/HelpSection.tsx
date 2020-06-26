@@ -20,9 +20,7 @@ const HelpSection = () => {
 			id="how-does-this-help"
 		>
 			<Box flex={1} mr={[0, 0, 3]}>
-				<Heading.h2 bold>
-					What is Fold for Covid, and how does it help?
-				</Heading.h2>
+				<Heading.h2>What is Fold for Covid, and how does it help?</Heading.h2>
 				<Txt.p mt={3}>
 					The Fold for Covid project aims to make it easy to donate spare
 					compute capacity to support COVID-19 research with a few simple steps.{' '}
@@ -89,11 +87,7 @@ const HelpSection = () => {
 					If you don’t have anything to run this project on you can still help
 					by running Rosetta@home on your desktop computer,{' '}
 					<Link dark href="/#get-started-main-computer">
-						<Txt.span
-							ml={-1}
-							style={{ textDecoration: 'underline' }}
-							fontSize={1}
-						>
+						<Txt.span ml={-1} style={{ textDecoration: 'underline' }}>
 							instructions are here.
 						</Txt.span>
 					</Link>

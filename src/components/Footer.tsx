@@ -38,7 +38,7 @@ const SocialLink = (props: SocialLinkProps) => (
 		color="#fff"
 		blank
 		rel="noreferrer noopener"
-		fontSize={0}
+		fontSize={1}
 		href={props.href}
 		mr={3}
 		my={[1, 1, 0, 0]}
@@ -67,7 +67,7 @@ const Footer = () => {
 					justifyContent="space-between"
 				>
 					<Flex flex={1} alignItems="center" width="100%">
-						<Txt.span mr={2} color="white" style={{ whiteSpace: 'nowrap' }}>
+						<Txt.span mr={2} color="white" whitespace="nowrap">
 							An open-source project by
 						</Txt.span>
 						<Link blank href="https://balena.io" style={{ lineHeight: 0 }}>

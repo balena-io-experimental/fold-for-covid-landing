@@ -26,10 +26,10 @@ export const CTASection = () => {
 					flexDirection="column"
 					maxWidth={375}
 				>
-					<Txt color="primary.main" bold fontSize={0}>
+					<Txt color="primary.main" bold fontSize={1}>
 						Join the COVID-19 fight
 					</Txt>
-					<Heading.h3 bold fontSize={4}>
+					<Heading.h3>
 						Do you have a spare computer <br /> or single board computer at
 						home?
 					</Heading.h3>

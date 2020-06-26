@@ -26,13 +26,7 @@ export const Link = (props: LinkProps) => {
 			style={{ textDecoration: 'none' }}
 			{...externalProps}
 		>
-			<Txt.span
-				pl={1}
-				pr={3}
-				bold
-				color={props.dark ? 'text.main' : '#fff'}
-				fontSize={0}
-			>
+			<Txt.span pl={1} pr={3} bold color={props.dark ? 'text.main' : '#fff'}>
 				{props.children}
 			</Txt.span>
 		</LinkComponent>

@@ -29,7 +29,7 @@ const renderGenericInfo = (deviceName?: string) => (
 
 const renderDownloadEtcher = () => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Download and install{' '}
 			<ExternalLink href="https://balena.io/etcher" label="balenaEtcher" />
 		</Txt>
@@ -47,7 +47,7 @@ const renderDownloadOS = (
 	deviceType?: BalenaSdk.DeviceType,
 ) => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Download the Fold for Covid project software
 		</Txt>
 		<Txt my={3}>
@@ -66,7 +66,7 @@ const renderDownloadOS = (
 
 const renderLaunchEtcher = (deviceName?: string) => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Launch balenaEtcher and flash your SD card
 		</Txt>
 		<Txt my={3}>
@@ -88,7 +88,7 @@ const renderLaunchEtcher = (deviceName?: string) => (
 
 const renderLaunchEtcherUsb = (deviceName?: string) => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Launch balenaEtcher and flash your USB flash drive
 		</Txt>
 		<Txt my={3}>
@@ -110,7 +110,7 @@ const renderLaunchEtcherUsb = (deviceName?: string) => (
 
 const renderBootUsb = () => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Once complete, plug the USB stick into your computer, and power it on
 		</Txt>
 		<Txt my={3}>
@@ -123,7 +123,7 @@ const renderBootUsb = () => (
 
 const renderPowerItOn = () => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Remove the USB stick and power it back on
 		</Txt>
 		<Txt my={3}>
@@ -162,7 +162,7 @@ const renderPowerItOn = () => (
 
 const renderInsertSDCard = (imgSrc: string, deviceName?: string) => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Boot up your device and begin folding!
 		</Txt>
 		<Txt my={3}>
@@ -217,7 +217,7 @@ const renderInsertSDCard = (imgSrc: string, deviceName?: string) => (
 
 const renderBootSbc = (deviceName?: string) => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Boot up your device and begin folding!
 		</Txt>
 		<Txt my={3}>
@@ -257,7 +257,7 @@ const renderBootSbc = (deviceName?: string) => (
 );
 
 const renderSocialShare = () => (
-	<Txt fontSize={2}>
+	<Txt fontSize={3}>
 		<Button
 			icon={<FontAwesomeIcon style={{ fontSize: 20 }} icon={faTwitter} />}
 			primary
@@ -290,7 +290,7 @@ const renderSocialShare = () => (
 
 const renderSuccess = () => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Add as many devices as you can, and tell everyone you know!
 		</Txt>
 		<Txt my={3}>
@@ -303,7 +303,7 @@ const renderSuccess = () => (
 
 const renderUsbSuccess = () => (
 	<>
-		<Txt fontSize={2} bold>
+		<Txt fontSize={3} bold>
 			Add as many devices as you can, and tell everyone you know!
 		</Txt>
 		<Txt my={3}>

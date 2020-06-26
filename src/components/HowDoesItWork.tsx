@@ -11,9 +11,7 @@ export const HowDoesItWork = () => {
 	return (
 		<>
 			<Box maxWidth="1280px" my={3} width="100%" mx="auto" px={3} py={2}>
-				<Heading.h1 bold py={3}>
-					How does it work?
-				</Heading.h1>
+				<Heading.h1 py={3}>How does it work?</Heading.h1>
 				<Flex flexDirection={['column', 'column', 'row']}>
 					<Box flex={1}>
 						<Txt.p>
@@ -33,9 +31,7 @@ export const HowDoesItWork = () => {
 							<ExternalLink href="/how-does-it-help" label="protein folding" />{' '}
 							simulations.
 						</Txt.p>
-						<Heading.h3 bold py={3}>
-							Setting up a new computer
-						</Heading.h3>
+						<Heading.h3 py={3}>Setting up a new computer</Heading.h3>
 						<Txt.p>
 							Usually, when you set up a computer, you have to install an
 							operating system (OS) first, before you can install any other
@@ -57,9 +53,7 @@ export const HowDoesItWork = () => {
 							it.
 						</Txt.p>
 
-						<Heading.h3 bold py={3}>
-							Getting online
-						</Heading.h3>
+						<Heading.h3 py={3}>Getting online</Heading.h3>
 						<Txt.p>
 							When you download the OS image from the{' '}
 							<ExternalLink
@@ -72,9 +66,7 @@ export const HowDoesItWork = () => {
 							credentials are injected into the image and then disposed of.
 						</Txt.p>
 
-						<Heading.h3 bold py={3}>
-							Running the software
-						</Heading.h3>
+						<Heading.h3 py={3}>Running the software</Heading.h3>
 						<Txt.p>
 							Once the OS has been installed, it automatically boots up and gets
 							to work. The device joins the global fleet of balena-powered
@@ -97,9 +89,7 @@ export const HowDoesItWork = () => {
 							, and your device will also output the same information to a
 							connected display if you have one.
 						</Txt.p>
-						<Heading.h3 bold py={3}>
-							Behind the scenes
-						</Heading.h3>
+						<Heading.h3 py={3}>Behind the scenes</Heading.h3>
 						<Txt.p>
 							We’re running{' '}
 							<ExternalLink label="balenaOS" href="https://balena.io/os" />, and

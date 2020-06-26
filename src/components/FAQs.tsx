@@ -229,13 +229,13 @@ const FAQs = () => {
 			flexDirection={'column'}
 			px={[0, 5]}
 		>
-			<Heading.h2 mx={2} fontSize={[5, 5, 6, 6]} px={1} my={3} bold>
+			<Heading.h2 mx={2} px={1} my={3} bold>
 				Frequently asked questions
 			</Heading.h2>
 			<Accordion items={sortedFaqs as any}></Accordion>
 
 			<Flex my={5} pl={3}>
-				<Txt fontSize={3} bold>
+				<Txt fontSize={4} bold>
 					Need more Help?
 				</Txt>
 				<Button

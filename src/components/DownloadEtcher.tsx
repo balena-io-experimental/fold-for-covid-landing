@@ -191,13 +191,7 @@ export const DownloadEtcher = () => {
 						}
 						return (
 							<MenuItem>
-								<Link
-									fontSize={14}
-									blank
-									key={index}
-									href={l.href}
-									color="#2a506f"
-								>
+								<Link blank key={index} href={l.href} color="#2a506f">
 									{l.text}
 								</Link>
 							</MenuItem>

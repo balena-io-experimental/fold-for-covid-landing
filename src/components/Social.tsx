@@ -23,7 +23,6 @@ const Social = () => {
 			>
 				<Heading.h2
 					align="center"
-					fontSize={[6, 6, 6, 58]}
 					style={{ lineHeight: 1.1 }}
 					color="#fff"
 					bold

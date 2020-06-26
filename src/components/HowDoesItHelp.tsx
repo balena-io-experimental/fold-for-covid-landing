@@ -11,9 +11,7 @@ export const AboutTheProject = () => {
 	return (
 		<>
 			<Box maxWidth="1280px" my={3} width="100%" mx="auto" px={3} py={2}>
-				<Heading.h1 bold py={3}>
-					How does it help?
-				</Heading.h1>
+				<Heading.h1 py={3}>How does it help?</Heading.h1>
 
 				<Flex flexDirection={['column', 'column', 'row']}>
 					<Box flex={1}>
@@ -68,7 +66,7 @@ export const AboutTheProject = () => {
 							style={{ maxHeight: 250 }}
 							alt="covid19 protein"
 						/>
-						<Txt fontSize={0} mt={2} maxWidth={400} align="center">
+						<Txt fontSize={1} mt={2} maxWidth={400} align="center">
 							Protein simulations are created to see whether they will bind to
 							the “spike” protein found on the COVID-19. Here is an example of
 							one such successful protein identified thus far.

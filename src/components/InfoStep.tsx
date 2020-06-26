@@ -17,7 +17,7 @@ export const InfoStep = ({ index, title, img }: InfoStepProps) => (
 			alignItems="start"
 		>
 			<Txt
-				fontSize={[3, 3, '13px', '13px']}
+				fontSize={3}
 				mb={[3, 3, 2, 2]}
 				style={{ lineHeight: 1.31, fontWeight: 600 }}
 			>

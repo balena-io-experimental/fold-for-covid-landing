@@ -213,7 +213,7 @@ const GetStarted = ({
 				flexDirection={'column'}
 				p={3}
 			>
-				<Heading.h2 pt={4} fontSize={[5, 6, 6, 7]} bold>
+				<Heading.h2 pt={4} bold>
 					Get Started
 				</Heading.h2>
 
@@ -225,13 +225,7 @@ const GetStarted = ({
 							setActiveIndex(newIndex);
 						}}
 					>
-						<Tab
-							title={
-								<Txt fontSize={2} bold>
-									Boards
-								</Txt>
-							}
-						>
+						<Tab title={<Heading.h4>Boards</Heading.h4>}>
 							{deviceTypeSelector}
 							{intro}
 							<Heading.h3 bold mb={3} mt={4}>
@@ -242,13 +236,7 @@ const GetStarted = ({
 								<Step index={index + 1}>{step}</Step>
 							))}
 						</Tab>
-						<Tab
-							title={
-								<Txt fontSize={2} bold>
-									Laptops or Desktop Computers
-								</Txt>
-							}
-						>
+						<Tab title={<Heading.h4>Laptops or Desktop Computers</Heading.h4>}>
 							{deviceTypeSelector}
 							{intro}
 							<Heading.h3 bold mb={3} mt={4}>
@@ -260,9 +248,9 @@ const GetStarted = ({
 						</Tab>
 						<Tab
 							title={
-								<Txt id="get-started-main-computer" fontSize={2} bold>
+								<Heading.h4 id="get-started-main-computer">
 									Main Computer
-								</Txt>
+								</Heading.h4>
 							}
 						>
 							<Txt.p mt={3}>
@@ -292,7 +280,7 @@ const GetStarted = ({
 							</Txt.p>
 
 							<Step index={1}>
-								<Txt fontSize={2} mb={2} bold>
+								<Txt fontSize={3} mb={2} bold>
 									Download and Install BOINC
 								</Txt>
 								<Button
@@ -334,7 +322,7 @@ const GetStarted = ({
 								</Flex>
 							</Step>
 							<Step index={2}>
-								<Txt fontSize={2} mb={2} bold>
+								<Txt fontSize={3} mb={2} bold>
 									Add the Rosetta@home Project
 								</Txt>
 								<Ul>
@@ -375,7 +363,7 @@ const GetStarted = ({
 								</Ul>
 							</Step>
 							<Step index={3}>
-								<Txt fontSize={2} bold>
+								<Txt fontSize={3} bold>
 									Join team Fold for Covid!
 								</Txt>
 								<Txt mt={3}>
