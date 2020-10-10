@@ -34,7 +34,7 @@ const faqs = [
 				Try the project out, come join us on the{' '}
 				<ExternalLink
 					label="Forums"
-					href="https://forums.balena.io/c/fold-for-covid/"
+					href="https://forums.balena.io/c/project-help/fold-for-covid/83"
 				/>
 				, submit fixes or improvements, or add features to the{' '}
 				<ExternalLink
@@ -205,7 +205,7 @@ const faqs = [
 			<>
 				Let us know in{' '}
 				<ExternalLink
-					href="https://forums.balena.io/c/fold-for-covid/"
+					href="https://forums.balena.io/c/project-help/fold-for-covid/83"
 					label="our Forums!"
 				/>
 			</>
@@ -242,7 +242,7 @@ const FAQs = () => {
 					mx={3}
 					target="_blank"
 					primary
-					href="https://forums.balena.io/c/fold-for-covid/"
+					href="https://forums.balena.io/c/project-help/fold-for-covid/83"
 				>
 					See forums
 				</Button>

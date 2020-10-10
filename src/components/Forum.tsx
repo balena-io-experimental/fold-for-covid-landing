@@ -23,7 +23,7 @@ const Forum = () => {
 				<Button
 					primary
 					target="_blank"
-					href="https://forums.balena.io/c/fold-for-covid/"
+					href="https://forums.balena.io/c/project-help/fold-for-covid/83"
 				>
 					See forums
 				</Button>
